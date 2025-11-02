@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Yunco Import & Export</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="./styles/style.css">
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=4defb48d-39ce-4b5b-a574-92a45f1d564e&lang=ru_RU" type="text/javascript"></script>
+    </head>
+    <body>
+        <!-- Шапка -->
+        <header id="header">
+            <div class="container header-container">
+                <a href="index.html" class="logo">
+                    <p>Yunco <br>Import & Export</p>
+                </a>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#about">О Нас</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="project.html">Наши проекты</a></li>
+                        <li><a href="#price">Тарифы</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-buttons">
+                    <a href="#contacts" class="btn btn-white">Контакты</a>
+                </div>
+                
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Герой-секция -->
+        <section class="hero" style="background-image: url('./pictures/cloud.jpg');">
+            <div class="hero-content">
+                <h1 class="hero-title">Экспорт без рисков<br>Мы делаем всё за вас</h1>
+                <p class="hero-subtitle">Полный цикл услуг из Китая: от поиска производителя до доставки на ваш склад</p>
+            </div>
+            <a href="#about" class="scroll-arrow" title="Перейти к услугам">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- Секция "О нас" -->
+        <section id="about" class="about">
+            <div class="container about-container">
+                <div class="about-images">
+                    <div class="about-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="about-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="about-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="about-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                </div>
+                
+                <div class="about-content">
+                    <h2 class="section-title">О Нас</h2>
+                    <p class="section-text">
+                        Мы — ваш надежный партнер в Китае с офисом и складом в городе Тайчжоу. Строим мосты между вашим бизнесом и возможностями Китая. Мы не просто оказываем услуги, а становимся вашим стратегическим партнером. Наша команда берет на себя всю сложную работу: от анализа рынка и поиска фабрик-производителей до контроля производства и отлаженной логистики. Мы открываем для вас двери на ключевые отраслевые выставки, помогая находить перспективные контакты и заключать взаимовыгодные соглашения. Ваша эффективность — наш главный приоритет.
+                    </p>
+                    <!-- <a href="#" class="text-link">Наша команда</a> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Услуги" -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Услуги</h2>
+                    <p class="section-subtitle">Новый уровень вашего бизнеса начинается с наших поставок из Китая</p>
+                    <p class="section-subtitle" style="font-style: italic;">Полный цикл. Полная надежность.</p>
+                </div>
+                
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="service-img" style="background-image: url('./pictures/services.jpg');"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">Поиск товаров</h3>
+                            <p class="service-text">
+                                Мы находим для вас самые выгодные предложения на рынке Китая, подбирая товары, которые идеально соответствуют вашим требованиям. Наша команда проверяет производителей, контролирует качество продукции и обеспечивает надежность каждой сделки. С нами вы экономите время, избегаете рисков и получаете доступ к эксклюзивным предложениям, недоступным на открытом рынке.
+                            </p>
+                                <button class="btn btn-blue open-modal" data-modal="modal1">Узнать больше</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-img" style="background-image: url('./pictures/logistics.jpg'); background-position: 0 70%;"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">Логистика</h3>
+                            <p class="service-text">
+                                Мы предлагаем комплексные логистические решения, включая морские, авиационные и автомобильные перевозки. Сотрудничая с проверенными партнерами, мы гарантируем своевременную, безопасную и надежную доставку ваших товаров.
+                            </p>
+                            <button class="btn btn-blue open-modal" data-modal="modal2">Узнать больше</button>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-img" style="background-image: url('./pictures/border.jpg'); background-position: 0 60%;"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">Таможенное оформление</h3>
+                            <p class="service-text">
+                                Мы обеспечиваем полный цикл работы с таможней, чтобы ваши грузы прошли оформление быстро, безопасно и без лишних хлопот.
+                            </p>
+                            <button class="btn btn-blue open-modal" data-modal="modal3">Узнать больше</button>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-img" style="background-image: url('./pictures/control.jpg');"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">Контроль качества товаров</h3>
+                            <p class="service-text">
+                                Мы лично проверяем продукцию прямо на территории Китая, чтобы вы получали только качественные товары, полностью соответствующие вашим требованиям. Все проверки выполняют наши русскоязычные специалисты, что обеспечивает прозрачность, оперативность и точное понимание ваших стандартов.
+                            </p>
+                            <button class="btn btn-blue open-modal" data-modal="modal4">Узнать больше</button>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-img" style="background-image: url('./pictures/escort.jpg'); background-position: 0 85%;"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">Сопровождение на выставках в Китае</h3>
+                            <p class="service-text">
+                                Мы сопровождаем вас на ключевых торговых выставках и ярмарках Китая, помогая находить лучших производителей и заключать выгодные сделки. Наши русскоязычные специалисты обеспечивают полное сопровождение, облегчая коммуникацию и навигацию в бизнес-среде Китая.
+                            </p>
+                            <button class="btn btn-blue open-modal" data-modal="modal5">Узнать больше</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Модальные окна для услуг -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <h3 class="modal-title">Поиск товаров</h3>
+                    <button class="close-btn">&times;</button>
+                </div> -->
+                <div class="modal-body">
+                    <div class="modal-images">
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                    </div>
+                    <div class="modal-text">
+                        <p class="modal-description">
+                            <p style="font-weight: 700; font-size: large; color: #1f5bff;">Этапы поиска товаров</p>
+                            <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
+                                <li style="margin-bottom: 1.5rem;">
+                                    <strong>Консультация:</strong><br> Мы детально выясняем ваши потребности, уточняем требования к продукту, включая цену, качество, бренд и другие ключевые параметры.
+                                </li>
+                                <li style="margin-bottom: 1.5rem;">
+                                    <strong>Поиск поставщиков:</strong><br> Используем широкий спектр источников — внутренние базы данных, онлайн-платформы, каталоги и специализированные ресурсы.
+                                </li>
+                                <li style="margin-bottom: 1.5rem;">
+                                    <strong>Анализ и сравнение:</strong><br> Наши специалисты оценивают все найденные варианты по критериям соответствия вашим требованиям, стоимости, качеству и наличию гарантий.
+                                </li>
+                                <li style="margin-bottom: 1.5rem;">
+                                    <strong>Подбор и рекомендации:</strong><br> На этом этапе мы предоставляем клиенту подборку наиболее подходящих товаров и подробно объясняем, почему именно они отвечают его запросам.
+                                </li>
+                                <li style="margin-bottom: 1.5rem;">
+                                    <strong>Оформление заказа:</strong><br> Сопровождаем процесс подтверждения покупки, предоставляем всю необходимую информацию по доставке, оплате и условиям сделки.
+                                </li>
+                                <li style="margin-bottom: 1.5rem;">
+                                    <strong>Сопровождение после покупки:</strong><br> После получения товара мы связываемся с вами, чтобы убедиться, что заказ полностью соответствует вашим ожиданиям и вы остались довольны.
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-images">
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                    </div>
+                    <div class="modal-text">
+                        <p style="font-weight: 700; font-size: large; color: #1f5bff;">Этапы логистики</p>
+                        <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Планирование:</strong><br> Определяем оптимальные маршруты, подбираем подходящий транспорт, рассчитываем объем и особенности грузов, а также учитываем все факторы, влияющие на перевозку.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Подготовка к отправке:</strong><br> Собираем товары в точке отправления, тщательно упаковываем и подготавливаем их к транспортировке.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Перевозка:</strong><br> Используем морской, авиационный или автомобильный транспорт в зависимости от типа груза, расстояния и срочности доставки.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Прием и проверка:</strong><br> По прибытии на место назначения разгружаем товары и проверяем их на целостность и соответствие количеству.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Доставка клиенту:</strong><br> Доставляем товары до конечного получателя, гарантируя своевременность и точность выполнения заказа.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-images">
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                    </div>
+                    <div class="modal-text">
+                        <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Подготовка документов:</strong><br> Сбор всех необходимых бумаг для прохождения таможни, включая сертификаты, счета и декларации.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Консультации и проверка:</strong><br> Наши специалисты проверяют корректность документов, дают рекомендации по оптимизации и минимизации рисков.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Подача деклараций:</strong><br> Оформление и подача всех таможенных деклараций и заявлений от имени клиента.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Взаимодействие с таможенными органами:</strong><br> Мы сопровождаем процесс, решаем вопросы и отслеживаем статус груза.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Контроль за грузом:</strong><br> После оформления мы контролируем освобождение товаров и их подготовку к дальнейшей доставке.
+                            </li>
+                        </ul>
+
+                        <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                            <p style="font-weight: 700; font-size: large; margin-bottom: 1.5rem; color: #1f5bff;">Преимущества:</p>
+                            <ul style="text-align: left; color: var(--light-text); line-height: 1.8; padding-left: 1.5rem;">
+                                <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
+                                    <strong>Экономия времени и сил клиента</strong> — вы не сталкиваетесь с бюрократией.
+                                </li>
+                                <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
+                                    <strong>Минимизация рисков задержек и штрафов.</strong>
+                                </li>
+                                <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
+                                    <strong>Профессиональный подход на каждом этапе</strong> — от документации до передачи груза.
+                                </li>
+                            </ul>
+                            <p style="margin-top: 1.5rem; line-height: 1.8; font-style: italic; color: #c2c2c4;">
+                                С нами ваши товары проходят таможню быстро, безопасно и без неожиданных проблем, а вы получаете готовый к использованию груз с полной гарантией соблюдения всех требований.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-images">
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                    </div>
+                    <div class="modal-text">
+                        <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Проверка производителей:</strong><br> Оцениваем репутацию и возможности поставщиков до начала сотрудничества.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Контроль на производстве:</strong><br> Наши русскоязычные специалисты проверяют продукцию на заводе, соблюдение всех технических и качественных требований.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Инспекция готовой продукции:</strong><br> Проверка количества, качества, упаковки и маркировки перед отправкой.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Тестирование и сертификация:</strong><br> При необходимости проводим испытания или проверку соответствия стандартам.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Подробные отчёты:</strong><br> Предоставляем фото и детальные результаты проверок, чтобы вы были уверены в каждой партии товара.
+                            </li>
+                        </ul>
+
+                        <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                            <p style="font-weight: 700; font-size: large; margin-bottom: 1.5rem; color: #1f5bff;">Преимущества:</p>
+                            <ul style="text-align: left; color: var(--light-text); line-height: 1.8; padding-left: 1.5rem;">
+                                <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
+                                    <strong>Полный контроль качества прямо на месте производства.</strong>
+                                </li>
+                                <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
+                                    <strong>Русскоязычные специалисты</strong> обеспечивают точное соблюдение ваших требований.
+                                </li>
+                                <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
+                                    <strong>Снижение рисков получения некачественного товара.</strong>
+                                </li>
+                                <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
+                                    <strong>Экономия времени и ресурсов при приёмке товаров.</strong>
+                                </li>
+                            </ul>
+                            <p style="margin-top: 1.5rem; line-height: 1.8; font-style: italic; color: #c2c2c4;">
+                                С нами вы получаете гарантированно качественный товар без сюрпризов — проверенный на территории Китая русскими специалистами.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-images">
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                    </div>
+                    <div class="modal-text">
+                        <p style="font-weight: 700; font-size: large; margin-bottom: 1.5rem; color: #1f5bff;">Что входит в услугу:</p>
+                        <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Подбор выставок и производителей:</strong><br> Выбираем мероприятия и экспонентов, максимально соответствующих вашим целям.
+                            </li>
+                           <li style="margin-bottom: 1.5rem;">
+                                <strong>Организация визитов:</strong><br> Планируем встречи с поставщиками, сопровождаем переговоры и обеспечиваем перевод.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Проверка продукции:</strong><br> Осматриваем образцы на месте, оцениваем качество и соответствие вашим требованиям.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Поддержка сделок:</strong><br> Консультируем по условиям контрактов, ценам и логистике, помогаем оформлять заказы.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>Отчётность:</strong><br> Предоставляем детальные отчёты о встречах, найденных товарах и потенциальных поставщиках.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Остальные секции остаются без изменений -->
+        <!-- Секция "Реализованные проекты" -->
+        <!-- <section id="projects" class="projects" style="background-image: url('./pictures/projects.jpg');">
+            <div class="container projects-container">
+                <div class="section-header">
+                    <h2 class="section-title">Реализованные проекты</h2>
+                    <p class="section-subtitle">Успешные проекты и долгосрочные партнерства с нашими клиентами</p>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <i class="fas fa-laptop project-icon"></i>
+                        <h3 class="project-title">Запуск IT-продукта</h3>
+                        <p class="project-description">Полный цикл от поиска производителя электроники до запуска бренда на рынке</p>
+                        <div class="project-footer">
+                            <div class="project-result">Результат:</div>
+                            <div class="project-description">Успешный запуск продукта, 10 000+ единиц продаж</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <i class="fas fa-industry project-icon"></i>
+                        <h3 class="project-title">Загаловок</h3>
+                        <p class="project-description">Текст</p>
+                        <div class="project-footer">
+                            <div class="project-result">Результат:</div>
+                            <div class="project-description">Вывод</div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <i class="fas fa-tshirt project-icon"></i>
+                        <h3 class="project-title">Загаловок</h3>
+                        <p class="project-description">Текст</p>
+                        <div class="project-footer">
+                            <div class="project-result">Результат:</div>
+                            <div class="project-description">Вывод</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+
+        <!-- Секция "Тарифы" -->
+        <section id="price" class="pricing">
+            <!-- Верхний блок с фоновым изображением -->
+            <div class="pricing-hero" style="background-image: url('./pictures/city.jpg');">
+                <div class="container">
+                    <h2 class="pricing-title">Наши тарифы</h2>
+                </div>
+            </div>
+
+            <!-- Основной контент с тарифами -->
+            <div class="pricing-content">
+                <div class="container-prices">
+                    <!-- Тариф 1 -->
+                    <div class="pricing-row">
+                        <div class="pricing-col pricing-col-title">
+                            <h3 class="pricing-item-title">Поиск поставщиков и товаров</h3>
+                        </div>
+                        <div class="pricing-col pricing-col-description">
+                            <p class="pricing-item-description">Наши специалисты отбирают лучшие предложения, сравнивают цены и условия поставки, чтобы найти оптимальное решение для вашего бизнеса.</p>
+                        </div>
+                        <div class="pricing-col pricing-col-price">
+                            <div class="pricing-item-price">¥500 за одну категорию товара</div>
+                        </div>
+                    </div>
+
+                    <!-- Тариф 2 -->
+                    <div class="pricing-row">
+                        <div class="pricing-col pricing-col-title">
+                            <h3 class="pricing-item-title">Проверка товара</h3>
+                        </div>
+                        <div class="pricing-col pricing-col-description">
+                            <p class="pricing-item-description">Мы проводим тщательную проверку товаров различных категорий — от электроники и бытовой техники до продуктов питания и товаров для дома. Эксперты анализируют соответствие товара описанию и проверяют работу всех функций.</p>
+                        </div>
+                        <div class="pricing-col pricing-col-price">
+                            <div class="pricing-item-price">¥1500</div>
+                        </div>
+                    </div>
+
+                    <!-- Тариф 3 -->
+                    <div class="pricing-row">
+                        <div class="pricing-col pricing-col-title">
+                            <h3 class="pricing-item-title">Аудит производителя</h3>
+                        </div>
+                        <div class="pricing-col pricing-col-description">
+                            <p class="pricing-item-description">Аудит обеспечивает контроль качества продукции и услуг компании, проверку документов, лицензий и посещение фабрик для оценки соответствия установленным стандартам.</p>
+                        </div>
+                        <div class="pricing-col pricing-col-price">
+                            <div class="pricing-item-price">¥1500 + транспортные расходы</div>
+                        </div>
+                    </div>
+
+                    <!-- Тариф 4 -->
+                    <div class="pricing-row">
+                        <div class="pricing-col pricing-col-title">
+                            <h3 class="pricing-item-title">Выкуп тестовых образцов и проверка качества</h3>
+                        </div>
+                        <div class="pricing-col pricing-col-description">
+                            <p class="pricing-item-description">Для точной оценки качества товара до его поступления на рынок мы организуем выкуп тестовых образцов из разных регионов. После получения образцов наши специалисты проверяют документацию, соответствие спецификациям и проводят полное тестирование.</p>
+                        </div>
+                        <div class="pricing-col pricing-col-price">
+                            <div class="pricing-item-price">¥200</div>
+                        </div>
+                    </div>
+
+                    <!-- Тариф 5 -->
+                    <div class="pricing-row">
+                        <div class="pricing-col pricing-col-title">
+                            <h3 class="pricing-item-title">Проверка партии перед отгрузкой</h3>
+                        </div>
+                        <div class="pricing-col pricing-col-description">
+                            <p class="pricing-item-description">Проверяем 5–10% партии перед отправкой клиенту, включая внешний вид, размеры, вес, комплектность, маркировку и упаковку, чтобы гарантировать соответствие стандартам качества.</p>
+                        </div>
+                        <div class="pricing-col pricing-col-price">
+                            <div class="pricing-item-price">¥1500</div>
+                        </div>
+                    </div>
+
+                    <!-- Тариф 6 -->
+                    <div class="pricing-row">
+                        <div class="pricing-col pricing-col-title">
+                            <h3 class="pricing-item-title">Посещение выставок</h3>
+                        </div>
+                        <div class="pricing-col pricing-col-description">
+                            <p class="pricing-item-description">Если у вас нет возможности лично посетить важные выставки, наши специалисты представят вашу компанию на мероприятии, получат ценные знания и наладят контакты с производителями.</p>
+                        </div>
+                        <div class="pricing-col pricing-col-price">
+                            <div class="pricing-item-price">¥1500 + транспортные расходы</div>
+                        </div>
+                    </div>
+
+                    <!-- Тариф 7 -->
+                    <div class="pricing-row">
+                        <div class="pricing-col pricing-col-title">
+                            <h3 class="pricing-item-title">Сопровождение на выставках</h3>
+                        </div>
+                        <div class="pricing-col pricing-col-description">
+                            <p class="pricing-item-description">Полное сопровождение на выставках: подготовка стенда, транспортировка грузов и поддержка клиента на протяжении всего мероприятия, чтобы обеспечить успешное участие и эффективные переговоры.</p>
+                        </div>
+                        <div class="pricing-col pricing-col-price">
+                            <div class="pricing-item-price">¥2000 + транспортные расходы</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Секция "Заявка" -->
+        <section id="request" class="request">
+            <div class="request-background" style="background-image: url('./pictures/requests.jpg');">
+                <div class="container">
+                    <div class="request-content">
+                        <h2 class="request-title">Нет нужной услуги в списке?</h2>
+                        <p class="request-text">Оставьте заявку, и мы оперативно подготовим индивидуальное решение для вас.</p>
+                        <a href="#contacts" class="btn btn-blue request-btn">Связаться с нами</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Секция преимуществ -->
+        <section id="advantages" class="advantages">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Наши Преимущества</h2>
+                </div>
+                
+                <div class="advantages-grid">
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="advantage-title">Быстрая и удобная коммуникация</h3>
+                        <p>Мы доступны для общения через мессенджеры в любое время, что позволяет клиентам получать ответы и решения оперативно.</p>
+                    </div>
+                    
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3 class="advantage-title">Глубокое понимание местного рынка</h3>
+                        <p>Наши сотрудники свободно говорят на китайском и имеют большой опыт работы с местными производителями, что делает сотрудничество эффективным и без лишних сложностей.</p>
+                    </div>
+                    
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="advantage-title">Оперативные платежи</h3>
+                        <p>Все финансовые операции проводятся максимально быстро, чтобы вы могли уверенно планировать свои закупки и бизнес-процессы.</p>
+                    </div>
+                    
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3 class="advantage-title">Индивидуальный подход</h3>
+                        <p>Мы посещаем производства и постоянно анализируем рынок, чтобы предлагать решения, полностью соответствующие уникальным потребностям каждого клиента.</p>
+                    </div>
+                    
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="advantage-title">Экономия времени и ресурсов</h3>
+                        <p>Сотрудничество с нами позволяет сосредоточиться на развитии вашего бизнеса, не отвлекаясь на логистику, поиск поставщиков и контроль доставки.</p>
+                    </div>
+                    
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="advantage-title">Надежность и безопасность</h3>
+                        <p>Вы можете быть уверены в качестве обслуживания и безопасности товаров благодаря нашему опыту и профессионализму команды.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция отзывов -->
+        <section class="testimonials" style="background-image: url('./pictures/reviews.jpg');">
+            <div class="container testimonials-container">
+                <div class="section-header">
+                    <h2 class="section-title">Отзывы</h2>
+                </div>
+                
+                <div class="testimonial-slider">
+                    <button class="testimonial-arrow testimonial-arrow-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="testimonial-items">
+                        <div class="testimonial-item active">
+                            <p class="testimonial-text">
+                                Хочу выразить благодарность команде за беспроблемный и оперативный процесс поставки. Мы заказывали оборудование для нашего производства в Подмосковье. От начала переговоров до получения груза на складе прошло меньше запланированного срока. Все документы были оформлены идеально, таможенное оформление прошло без задержек. Качество товара полностью соответствует образцам. Обязательно будем обращаться еще и порекомендуем вас партнерам!
+                            </p>
+                            <p class="testimonial-author">Николай</p>
+                        </div>
+                        
+                        <div class="testimonial-item">
+                            <p class="testimonial-text">
+                                Как крупный оптовый поставщик товаров для дачи и отдыха, мы давно искали надежного партнера для импорта бескаркасных бассейнов. Работа с этой компанией оставила исключительно положительные впечатления.
+                            <p class="testimonial-author">Иван</p>
+                        </div>
+                        
+                        <div class="testimonial-item">
+                            <p class="testimonial-text">
+                                Обратились в компанию с сложной задачей — найти определенные промышленные мониторы и контроллеры, которые сложно найти в России. Специалисты быстро подобрали нужные модели, привезли полную партию без задержек. Качество оборудования отличное, вся документация была в порядке. Очень выручили!
+                            </p>
+                            <p class="testimonial-author">Михаил</p>
+                        </div>
+                    </div>
+                    
+                    <button class="testimonial-arrow testimonial-arrow-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция контактов -->
+        <section id="contacts" class="contacts">
+            <div id="map" class="map"></div>
+            <div class="contact-info">
+                <div class="contact-content">
+                    <h2 class="contact-title" style="font-size: 30px;">Свяжитесь с нами</h2>
+                    <div class="contact-details">
+                        <p>+86 158 6894 6832 Кирилл<br><br></p>
+                        <p>浙江省台州市台州湾新区三甲街道聚英路 2277-2 号三楼</p>
+                        <p>г. Тайчжоу, провинция Чжэцзян, Новый район Тайчжоу-Бэй, ул. Цзюйин, д. 2277-2, 3-й этаж.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="mailto:" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/79819338528" class="social-link" title="WhatsApp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/kirillzamkov" class="social-link" title="Telegram" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Подвал -->
+        <footer>
+            <div class="footer-divider"></div>
+                
+            <p>© Yunco Import & Export Co. Ltd. <br>Тайчжоу, провинция Чжэцзян, Китай</p>
+        </footer>
+
+        <script>
+            
+
+            // Изменение шапки при скролле
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Слайдер для отзывов
+            const dots = document.querySelectorAll('.dot');
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    dots.forEach(d => d.classList.remove('active'));
+                    testimonials.forEach(t => t.classList.remove('active'));
+                    
+                    dot.classList.add('active');
+                    testimonials[index].classList.add('active');
+                });
+            });
+
+            // Плавный скролл для навигационных ссылок
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerHeight = document.getElementById('header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Меняем URL без перезагрузки страницы
+                        history.pushState(null, null, this.getAttribute('href'));
+                    }
+                });
+            });
+
+            // Модальные окна
+            const modalBtns = document.querySelectorAll('.open-modal');
+            const modals = document.querySelectorAll('.modal');
+            const closeBtns = document.querySelectorAll('.close-btn');
+
+            // Открытие модального окна
+            modalBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modalId = this.getAttribute('data-modal');
+                    const modal = document.getElementById(modalId);
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Запрещаем скролл страницы
+                });
+            });
+
+            // Закрытие модального окна
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Возвращаем скролл
+                });
+            });
+
+            // Закрытие модального окна при клике вне его
+            window.addEventListener('click', function(e) {
+                modals.forEach(modal => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+
+            // Закрытие модального окна при нажатии Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        if (modal.style.display === 'block') {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }
+                    });
+                }
+            });
+
+            // Карусель для отзывов
+            document.addEventListener('DOMContentLoaded', function() {
+                const testimonialItems = document.querySelectorAll('.testimonial-item');
+                const dots = document.querySelectorAll('.dot');
+                const prevArrow = document.querySelector('.testimonial-arrow-prev');
+                const nextArrow = document.querySelector('.testimonial-arrow-next');
+                let currentIndex = 0;
+
+                // Функция для показа определенного слайда
+                function showSlide(index) {
+                    // Скрываем все слайды
+                    testimonialItems.forEach(item => item.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    
+                    // Корректируем индекс, если он выходит за границы
+                    if (index >= testimonialItems.length) {
+                        currentIndex = 0;
+                    } else if (index < 0) {
+                        currentIndex = testimonialItems.length - 1;
+                    } else {
+                        currentIndex = index;
+                    }
+                    
+                    // Показываем текущий слайд и активируем соответствующую точку
+                    testimonialItems[currentIndex].classList.add('active');
+                    dots[currentIndex].classList.add('active');
+                }
+
+                // Обработчики для стрелок
+                prevArrow.addEventListener('click', function() {
+                    showSlide(currentIndex - 1);
+                });
+
+                nextArrow.addEventListener('click', function() {
+                    showSlide(currentIndex + 1);
+                });
+
+                // Обработчики для точек
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', function() {
+                        showSlide(index);
+                    });
+                });
+
+                // Автопереключение слайдов (опционально)
+                let slideInterval = setInterval(function() {
+                    showSlide(currentIndex + 1);
+                }, 5000); // Переключаем каждые 5 секунд
+
+                // Останавливаем автопереключение при наведении на слайдер
+                const slider = document.querySelector('.testimonial-slider');
+                slider.addEventListener('mouseenter', function() {
+                    clearInterval(slideInterval);
+                });
+
+                slider.addEventListener('mouseleave', function() {
+                    slideInterval = setInterval(function() {
+                        showSlide(currentIndex + 1);
+                    }, 5000);
+                });
+            });
+
+
+
+            function initMap() {
+                if (typeof ymaps !== 'undefined') {
+                    ymaps.ready(function() {
+
+                        var myMap = new ymaps.Map('map', {
+                            center: [28.691438, 121.131672], // Координаты центра карты
+                            zoom: 12 // Масштаб
+                        }, {
+                            searchControlProvider: 'yandex#search'
+                        });
+
+
+                        var myPlacemark = new ymaps.Placemark([28.691438, 121.131672], {
+                            hintContent: 'Наш офис'
+                        }, {
+                            preset: 'islands#redIcon', 
+                            iconColor: '#1f5bff',
+                        });
+
+                        myMap.geoObjects.add(myPlacemark);
+
+                        myMap.controls
+                            .remove('geolocationControl')
+                            .remove('searchControl')
+                            .remove('trafficControl')
+                            .remove('typeSelector')
+                            .remove('fullscreenControl')
+                            .remove('rulerControl');
+                    });
+                } else {
+                    console.error('Yandex Maps API not loaded');
+                    document.getElementById('map').innerHTML = `
+                        <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#333; color:white;">
+                            <p>Карта временно недоступна</p>
+                        </div>
+                    `;
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                initMap();
+            });
+
+            window.addEventListener('load', function() {
+                if (!document.querySelector('#map ymaps')) {
+                    initMap();
+                }
+            });
+
+
+
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // Перехватываем клики по ссылкам
+                document.addEventListener('click', function(e) {
+                    if (e.target.matches('a[href]')) {
+                        const link = e.target.closest('a');
+                        const href = link.getAttribute('href');
+                        
+                        // Если это внешняя ссылка, якорь или специальные ссылки, пропускаем
+                        if (href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || 
+                            href.startsWith('tel:') || href.startsWith('javascript:')) {
+                            return;
+                        }
+                        
+                        e.preventDefault();
+                        loadPage(href);
+                    }
+                });
+
+                // Функция загрузки страницы
+                function loadPage(url) {
+                    // Показываем индикатор загрузки
+                    document.body.style.opacity = '0.7';
+                    
+                    fetch(url)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text();
+                        })
+                        .then(html => {
+                            // Парсим HTML
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, 'text/html');
+                            
+                            // Заменяем содержимое body
+                            document.body.innerHTML = doc.body.innerHTML;
+                            
+                            // Обновляем заголовок страницы
+                            document.title = doc.title;
+                            
+                            // Обновляем URL в браузере
+                            window.history.pushState({}, '', url);
+                            
+                            // Восстанавливаем opacity
+                            document.body.style.opacity = '1';
+                            
+                            // Перезапускаем скрипты
+                            initScripts();
+                        })
+                        .catch(error => {
+                            console.error('Error loading page:', error);
+                            document.body.style.opacity = '1';
+                            window.location.href = url; // Fallback на обычную загрузку
+                        });
+                }
+
+                // Функция инициализации скриптов после загрузки страницы
+                function initScripts() {
+                    // Инициализируем все необходимые скрипты заново
+                    initModalWindows();
+                    initTestimonialSlider();
+                    initMap();
+                    // Добавьте другие инициализации по необходимости
+                }
+
+                // Обработка кнопок браузера (вперед/назад)
+                window.addEventListener('popstate', function() {
+                    loadPage(window.location.pathname);
+                });
+
+                // Инициализация модальных окон (пример)
+                function initModalWindows() {
+                    const modalBtns = document.querySelectorAll('.open-modal');
+                    const modals = document.querySelectorAll('.modal');
+                    const closeBtns = document.querySelectorAll('.close-btn');
+
+                    modalBtns.forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const modalId = this.getAttribute('data-modal');
+                            const modal = document.getElementById(modalId);
+                            if (modal) {
+                                modal.style.display = 'block';
+                                document.body.style.overflow = 'hidden';
+                            }
+                        });
+                    });
+
+                    closeBtns.forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const modal = this.closest('.modal');
+                            if (modal) {
+                                modal.style.display = 'none';
+                                document.body.style.overflow = 'auto';
+                            }
+                        });
+                    });
+
+                    window.addEventListener('click', function(e) {
+                        modals.forEach(modal => {
+                            if (e.target === modal) {
+                                modal.style.display = 'none';
+                                document.body.style.overflow = 'auto';
+                            }
+                        });
+                    });
+                }
+
+                // Инициализация слайдера отзывов (пример)
+                function initTestimonialSlider() {
+                    // Ваш существующий код для слайдера
+                }
+
+                // Инициализация карты (пример)
+                function initMap() {
+                    // Ваш существующий код для карты
+                }
+            });
+        </script>
+    </body>
+</html>
