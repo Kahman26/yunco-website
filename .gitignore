@@ -1,1 +1,5 @@
 backend/venv/
+backend/collect_full_project.py
+backend/backend/.env
+backend/db.sqlite3
+backend/backend/db.sqlite3

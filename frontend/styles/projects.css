@@ -5,8 +5,9 @@
     box-sizing: border-box;
 }
 
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     color: #fff;
     background-color: #00060f;
     line-height: 1.6;
@@ -140,7 +141,7 @@ a {
 }
 
 .project-category {
-    color: #1f5bff;
+    color: #FF6B35;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 10px;
@@ -155,7 +156,7 @@ a {
 }
 
 .project-link {
-    color: #1f5bff;
+    color: #FF6B35;
     font-weight: 500;
     display: inline-flex;
     align-items: center;
@@ -286,11 +287,11 @@ a {
     font-weight: 500;
     margin-bottom: 8px;
     line-height: 1.3;
-    font-family: 'TildaSans', Arial, sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .project-card-category {
-    color: #1f5bff;
+    color: #FF6B35;
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
@@ -314,7 +315,7 @@ a {
 }
 
 
-/* Модальные окна проектов */
+/* Улучшенные стили для модальных окон проектов на мобильных устройствах */
 .modal {
     display: none;
     position: fixed;
@@ -323,109 +324,48 @@ a {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 10, 24, 0.6);
+    background-color: rgba(0, 10, 24, 0.9);
     backdrop-filter: blur(5px);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 }
 
 .project-modal-content {
     position: relative;
     background-color: #00060f;
-    margin: 2% auto;
-    width: 90%;
-    max-width: 1200px;
-    max-height: 90vh;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.project-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px 0;
-    background-color: #00060f;
-}
-
-.project-modal-title {
-    font-size: 28px;
-    font-weight: 500;
-    color: #fff;
-    font-family: 'TildaSans', Arial, sans-serif;
     margin: 0;
-}
-
-.modal-close-btn {
-    background: none;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    overflow: auto;
+    box-shadow: none;
     border: none;
-    color: #fff;
-    font-size: 32px;
-    cursor: pointer;
-    padding: 0;
-    width: 40px;
-    height: 40px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.modal-close-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    flex-direction: column;
 }
 
 .project-modal-body {
     display: flex;
-    height: calc(90vh - 100px);
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
 }
 
 .project-info {
-    flex: 1;
-    padding: 30px 40px;
+    flex: 0 0 auto;
+    padding: 20px;
     overflow-y: auto;
     background-color: #00060f;
-}
-
-.project-info .project-category {
-    color: #1f5bff;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
-.project-description {
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-.project-features {
-    list-style: none;
-    margin-bottom: 30px;
-}
-
-.project-features li {
-    margin-bottom: 12px;
-    position: relative;
-    line-height: 1.5;
-}
-
-.project-features li:before {
-    color: #1f5bff;
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-    font-size: 16px;
+    max-height: 50vh;
 }
 
 .project-gallery {
     flex: 1;
     background-color: #000;
     position: relative;
+    min-height: 50vh;
 }
 
 .gallery-container {
@@ -494,11 +434,11 @@ a {
 }
 
 .gallery-prev {
-    left: 20px;
+    left: 10px;
 }
 
 .gallery-next {
-    right: 20px;
+    right: 10px;
 }
 
 .gallery-control svg {
@@ -506,48 +446,118 @@ a {
     height: 24px;
 }
 
-/* Адаптивность для модальных окон */
-@media (max-width: 992px) {
+/* Кнопка закрытия для мобильных */
+.modal-close-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1001;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.modal-close-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+/* Адаптивность для модальных окон на мобильных устройствах */
+@media (max-width: 768px) {
+    .project-modal-content {
+        height: 100vh;
+        max-height: 100vh;
+    }
+    
     .project-modal-body {
         flex-direction: column;
-        height: auto;
+        height: 100vh;
     }
     
     .project-info {
         max-height: 40vh;
-        padding: 25px 30px;
+        padding: 15px;
+        overflow-y: auto;
     }
     
     .project-gallery {
-        height: 400px;
+        height: 60vh;
+        min-height: 60vh;
     }
     
-    .project-modal-header {
-        padding: 25px 30px 0;
+    .project-info .project-category {
+        font-size: 13px;
+        margin-bottom: 15px;
     }
     
-    .project-modal-title {
+    .project-features {
+        margin-bottom: 20px;
+    }
+    
+    .project-features li {
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .project-features li strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 15px;
+    }
+    
+    .gallery-control {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .gallery-control svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .modal-close-btn {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
         font-size: 24px;
     }
 }
 
-@media (max-width: 768px) {
-    .project-modal-content {
-        width: 95%;
-        margin: 1% auto;
-    }
-    
-    .project-modal-header {
-        padding: 20px 25px 0;
-    }
-    
+@media (max-width: 480px) {
     .project-info {
-        padding: 20px 25px;
-        max-height: 35vh;
+        max-height: 45vh;
+        padding: 12px;
     }
     
     .project-gallery {
-        height: 350px;
+        height: 55vh;
+        min-height: 55vh;
+    }
+    
+    .project-info .project-category {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    
+    .project-features li {
+        margin-bottom: 12px;
+        font-size: 13px;
+    }
+    
+    .project-features li strong {
+        font-size: 14px;
     }
     
     .gallery-control {
@@ -556,27 +566,45 @@ a {
     }
     
     .gallery-control svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
+    }
+    
+    .gallery-prev {
+        left: 8px;
+    }
+    
+    .gallery-next {
+        right: 8px;
+    }
+    
+    .modal-close-btn {
+        top: 8px;
+        right: 8px;
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
     }
 }
 
-@media (max-width: 480px) {
-    .project-modal-header {
-        padding: 15px 20px 0;
-    }
-    
-    .project-modal-title {
-        font-size: 20px;
-    }
-    
+@media (max-width: 360px) {
     .project-info {
-        padding: 15px 20px;
-        max-height: 30vh;
+        max-height: 50vh;
+        padding: 10px;
     }
     
     .project-gallery {
-        height: 300px;
+        height: 50vh;
+        min-height: 50vh;
+    }
+    
+    .project-features li {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .project-features li strong {
+        font-size: 13px;
     }
     
     .gallery-control {
@@ -585,15 +613,366 @@ a {
     }
     
     .gallery-control svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Горизонтальная ориентация на мобильных */
+@media (max-height: 500px) and (orientation: landscape) {
+    .project-modal-body {
+        flex-direction: row;
     }
     
-    .gallery-prev {
-        left: 10px;
+    .project-info {
+        flex: 1;
+        max-height: 100vh;
+        padding: 15px;
     }
     
-    .gallery-next {
+    .project-gallery {
+        flex: 1;
+        height: 100vh;
+        min-height: auto;
+    }
+    
+    .modal-close-btn {
+        top: 10px;
         right: 10px;
+    }
+}
+
+/* Для планшетов и десктопов */
+@media (min-width: 769px) {
+    .project-modal-content {
+        margin: 2% auto;
+        width: 90%;
+        max-width: 1200px;
+        max-height: 90vh;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        height: auto;
+    }
+    
+    .project-modal-body {
+        flex-direction: row;
+        height: calc(90vh - 60px);
+    }
+    
+    .project-info {
+        flex: 1;
+        padding: 30px 40px;
+        max-height: none;
+        overflow-y: auto;
+    }
+    
+    .project-gallery {
+        flex: 1;
+        height: auto;
+        min-height: auto;
+    }
+    
+    .modal-close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Улучшения для жестов на мобильных устройствах */
+.gallery-slider {
+    -webkit-overflow-scrolling: touch;
+}
+
+.project-info {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Предотвращение масштабирования при касании на мобильных */
+@media (max-width: 768px) {
+    .project-modal-content {
+        touch-action: pan-y;
+    }
+}
+
+/* Анимация открытия модального окна */
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal[style*="display: block"] .project-modal-content {
+    animation: modalOpen 0.3s ease-out;
+}
+
+
+/* Мобильное меню для страницы проектов */
+.mobile-menu-btn {
+    display: none;
+    cursor: pointer;
+    z-index: 1002;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mobile-menu-btn i {
+    color: #e0e0e0;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-btn.active {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mobile-menu-btn.active i {
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: #00060f;
+    z-index: 1001;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-container {
+    padding: 80px 30px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-nav-menu {
+    list-style: none;
+    flex: 1;
+}
+
+.mobile-nav-menu li {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-menu li:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-menu a {
+    display: block;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    border: none;
+}
+
+.mobile-nav-menu a:hover {
+    color: #FF6B35;
+}
+
+.mobile-menu-contact {
+    background-color: #FF6B35;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.mobile-menu-footer {
+    margin-top: auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.mobile-copyright {
+    text-align: center;
+    color: #c2c2c4;
+    font-size: 14px;
+}
+
+/* Адаптивность для мобильного меню */
+@media (max-width: 768px) {
+    .nav, .header-buttons {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .header-container {
+        position: relative;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-menu {
+        width: 280px;
+    }
+    
+    .mobile-menu-container {
+        padding: 70px 20px 20px;
+    }
+    
+    .mobile-nav-menu a {
+        font-size: 16px;
+        padding: 12px 0;
+    }
+    
+    .mobile-menu-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .mobile-menu-btn i {
+        font-size: 16px;
+    }
+}
+
+/* Улучшения для шапки на странице проектов */
+.projects-page {
+    padding: 100px 0 100px;
+}
+
+/* Адаптивность для шапки проектов */
+@media (max-width: 768px) {
+    .projects-page {
+        padding: 120px 0 80px;
+    }
+}
+
+/* Улучшения для мобильного меню */
+.mobile-menu, .mobile-menu-overlay {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* Плавные переходы */
+.mobile-nav-menu a,
+.mobile-menu-contact,
+.social-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Улучшения для иконки меню на разных устройствах */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        background-color: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .mobile-menu-btn i {
+        color: #d0d0d0;
+    }
+}
+
+/* Улучшение доступности */
+.mobile-menu-btn:focus {
+    outline: 2px solid #FF6B35;
+    outline-offset: 2px;
+}
+
+/* Плавная анимация иконки */
+.mobile-menu-btn i {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Стили для иконок соцсетей в шапке */
+.header-social-links {
+    display: flex;
+    gap: 10px;
+    margin-right: 15px;
+}
+
+.header-social-link {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.header-social-link:hover {
+    background-color: #FF6B35;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* Адаптивность для иконок в шапке */
+@media (max-width: 768px) {
+    .header-social-links {
+        display: none; /* Скрываем на мобильных, так как они есть в мобильном меню */
     }
 }

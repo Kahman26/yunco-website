@@ -1,44 +1,81 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Yunco Import & Export</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+        <link rel="icon" type="image/png" href="{% static 'pictures/icon.png' %}">
         <script src="https://api-maps.yandex.ru/2.1/?apikey=4defb48d-39ce-4b5b-a574-92a45f1d564e&lang=ru_RU" type="text/javascript"></script>
     </head>
     <body>
-        <!-- Шапка -->
         <header id="header">
             <div class="container header-container">
-                <a href="index.html" class="logo">
+                <a href="{% url 'home' %}" class="logo">
                     <p>Yunco <br>Import & Export</p>
                 </a>
                 
-                <nav>
+                <nav class="nav">
                     <ul class="nav-menu">
+                        <li><a href="#header">Главная</a></li>
                         <li><a href="#about">О Нас</a></li>
                         <li><a href="#services">Услуги</a></li>
-                        <li><a href="project.html">Наши проекты</a></li>
+                        <li><a href="{% url 'projects' %}">Наши проекты</a></li>
                         <li><a href="#price">Тарифы</a></li>
                     </ul>
                 </nav>
                 
                 <div class="header-buttons">
                     <a href="#contacts" class="btn btn-white">Контакты</a>
+                    <div class="header-social-links">
+                        <a href="https://wa.me/79819338528" class="btn btn-social whatsapp-btn" title="WhatsApp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/kirillzamkov" class="btn btn-social telegram-btn" title="Telegram" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="mobile-menu-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <i class="fas fa-bars"></i>
                 </div>
             </div>
         </header>
 
+        <main id="main-content">
+        <!-- Мобильное меню -->
+        <div class="mobile-menu-overlay"></div>
+        <nav class="mobile-menu">
+            <div class="mobile-menu-container">
+                <ul class="mobile-nav-menu">
+                    <li><a href="#header">Главная</a></li>
+                    <li><a href="#about">О Нас</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="{% url 'projects' %}">Наши проекты</a></li>
+                    <li><a href="#price">Тарифы</a></li>
+                    <li><a href="#contacts" class="mobile-menu-contact">Контакты</a></li>
+                </ul>
+                <div class="mobile-menu-footer">
+                    <div class="mobile-social-links">
+                        <a href="mailto:" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/79819338528" class="social-link" title="WhatsApp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/kirillzamkov" class="social-link" title="Telegram" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                    <p class="mobile-copyright">© Yunco Import & Export</p>
+                </div>
+            </div>
+        </nav>
+
         <!-- Герой-секция -->
-        <section class="hero" style="background-image: url('./pictures/cloud.jpg');">
+        <section class="hero" style="background-image: url('{% static 'pictures/cloud.jpg' %}')">
             <div class="hero-content">
                 <h1 class="hero-title">Экспорт без рисков<br>Мы делаем всё за вас</h1>
                 <p class="hero-subtitle">Полный цикл услуг из Китая: от поиска производителя до доставки на ваш склад</p>
@@ -52,10 +89,11 @@
         <section id="about" class="about">
             <div class="container about-container">
                 <div class="about-images">
-                    <div class="about-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
-                    <div class="about-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
-                    <div class="about-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
-                    <div class="about-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="about-img" style="background-image: url('{% static 'pictures/about/3.png' %}')"></div>
+                    <div class="about-images-2"> 
+                        <div class="about-img" style="background-image: url('{% static 'pictures/about/1.png' %}')"></div>
+                        <div class="about-img" style="background-image: url('{% static 'pictures/about/2.png' %}')"></div>
+                    </div>
                 </div>
                 
                 <div class="about-content">
@@ -79,7 +117,7 @@
                 
                 <div class="services-list">
                     <div class="service-item">
-                        <div class="service-img" style="background-image: url('./pictures/services.jpg');"></div>
+                        <div class="service-img" style="background-image: url('{% static 'pictures/services.jpg' %}')"></div>
                         <div class="service-content">
                             <h3 class="service-title">Поиск товаров</h3>
                             <p class="service-text">
@@ -88,9 +126,9 @@
                                 <button class="btn btn-blue open-modal" data-modal="modal1">Узнать больше</button>
                         </div>
                     </div>
-                    
+
                     <div class="service-item">
-                        <div class="service-img" style="background-image: url('./pictures/logistics.jpg'); background-position: 0 70%;"></div>
+                        <div class="service-img" style="background-image: url('{% static 'pictures/logistics.jpg' %}'); background-position: 0 70%;"></div>
                         <div class="service-content">
                             <h3 class="service-title">Логистика</h3>
                             <p class="service-text">
@@ -101,7 +139,7 @@
                     </div>
 
                     <div class="service-item">
-                        <div class="service-img" style="background-image: url('./pictures/border.jpg'); background-position: 0 60%;"></div>
+                        <div class="service-img" style="background-image: url('{% static 'pictures/border.jpg' %}'); background-position: 0 60%;"></div>
                         <div class="service-content">
                             <h3 class="service-title">Таможенное оформление</h3>
                             <p class="service-text">
@@ -112,7 +150,7 @@
                     </div>
 
                     <div class="service-item">
-                        <div class="service-img" style="background-image: url('./pictures/control.jpg');"></div>
+                        <div class="service-img" style="background-image: url('{% static 'pictures/control.jpg' %}');"></div>
                         <div class="service-content">
                             <h3 class="service-title">Контроль качества товаров</h3>
                             <p class="service-text">
@@ -123,7 +161,7 @@
                     </div>
 
                     <div class="service-item">
-                        <div class="service-img" style="background-image: url('./pictures/escort.jpg'); background-position: 0 85%;"></div>
+                        <div class="service-img" style="background-image: url('{% static 'pictures/escort.jpg' %}'); background-position: 0 85%;"></div>
                         <div class="service-content">
                             <h3 class="service-title">Сопровождение на выставках в Китае</h3>
                             <p class="service-text">
@@ -145,12 +183,14 @@
                 </div> -->
                 <div class="modal-body">
                     <div class="modal-images">
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/1-1.png' %}')"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/1-2.png' %}')"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/1-3.png' %}')"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/1-4.png' %}')"></div>
                     </div>
                     <div class="modal-text">
                         <p class="modal-description">
-                            <p style="font-weight: 700; font-size: large; color: #1f5bff;">Этапы поиска товаров</p>
+                            <p style="font-weight: 700; font-size: large; color: #FF6B35;">Этапы поиска товаров</p>
                             <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
                                 <li style="margin-bottom: 1.5rem;">
                                     <strong>Консультация:</strong><br> Мы детально выясняем ваши потребности, уточняем требования к продукту, включая цену, качество, бренд и другие ключевые параметры.
@@ -181,11 +221,12 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="modal-images">
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/2-1.png' %}')"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/2-2.png' %}')"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/2-3.png' %}')"></div>
                     </div>
                     <div class="modal-text">
-                        <p style="font-weight: 700; font-size: large; color: #1f5bff;">Этапы логистики</p>
+                        <p style="font-weight: 700; font-size: large; color: #FF6B35;">Этапы логистики</p>
                         <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
                             <li style="margin-bottom: 1.5rem;">
                                 <strong>Планирование:</strong><br> Определяем оптимальные маршруты, подбираем подходящий транспорт, рассчитываем объем и особенности грузов, а также учитываем все факторы, влияющие на перевозку.
@@ -212,8 +253,8 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="modal-images">
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/3-1.png' %}')"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/3-2.png' %}')"></div>
                     </div>
                     <div class="modal-text">
                         <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
@@ -235,7 +276,7 @@
                         </ul>
 
                         <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                            <p style="font-weight: 700; font-size: large; margin-bottom: 1.5rem; color: #1f5bff;">Преимущества:</p>
+                            <p style="font-weight: 700; font-size: large; margin-bottom: 1.5rem; color: #FF6B35;">Преимущества:</p>
                             <ul style="text-align: left; color: var(--light-text); line-height: 1.8; padding-left: 1.5rem;">
                                 <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
                                     <strong>Экономия времени и сил клиента</strong> — вы не сталкиваетесь с бюрократией.
@@ -260,8 +301,9 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="modal-images">
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/4-1.png' %}')"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/4-2.png' %}')"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/4-3.png' %}')"></div>
                     </div>
                     <div class="modal-text">
                         <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
@@ -283,7 +325,7 @@
                         </ul>
 
                         <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                            <p style="font-weight: 700; font-size: large; margin-bottom: 1.5rem; color: #1f5bff;">Преимущества:</p>
+                            <p style="font-weight: 700; font-size: large; margin-bottom: 1.5rem; color: #FF6B35;">Преимущества:</p>
                             <ul style="text-align: left; color: var(--light-text); line-height: 1.8; padding-left: 1.5rem;">
                                 <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
                                     <strong>Полный контроль качества прямо на месте производства.</strong>
@@ -311,11 +353,11 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="modal-images">
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
-                        <div class="modal-img" style="background-image: url('https://via.placeholder.com/450x250');"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/5-1.png' %}')"></div>
+                        <div class="modal-img" style="background-image: url('{% static 'pictures/Offers/5-2.png' %}')"></div>
                     </div>
                     <div class="modal-text">
-                        <p style="font-weight: 700; font-size: large; margin-bottom: 1.5rem; color: #1f5bff;">Что входит в услугу:</p>
+                        <p style="font-weight: 700; font-size: large; margin-bottom: 1.5rem; color: #FF6B35;">Что входит в услугу:</p>
                         <ul style="text-align: left; color: var(--light-text); margin: 2rem 0; line-height: 1.8; padding-left: 1.5rem;">
                             <li style="margin-bottom: 1.5rem;">
                                 <strong>Подбор выставок и производителей:</strong><br> Выбираем мероприятия и экспонентов, максимально соответствующих вашим целям.
@@ -385,7 +427,7 @@
         <!-- Секция "Тарифы" -->
         <section id="price" class="pricing">
             <!-- Верхний блок с фоновым изображением -->
-            <div class="pricing-hero" style="background-image: url('./pictures/city.jpg');">
+            <div class="pricing-hero" style="background-image: url('{% static 'pictures/city.jpg' %}')">
                 <div class="container">
                     <h2 class="pricing-title">Наши тарифы</h2>
                 </div>
@@ -394,96 +436,7 @@
             <!-- Основной контент с тарифами -->
             <div class="pricing-content">
                 <div class="container-prices">
-                    <!-- Тариф 1 -->
-                    <div class="pricing-row">
-                        <div class="pricing-col pricing-col-title">
-                            <h3 class="pricing-item-title">Поиск поставщиков и товаров</h3>
-                        </div>
-                        <div class="pricing-col pricing-col-description">
-                            <p class="pricing-item-description">Наши специалисты отбирают лучшие предложения, сравнивают цены и условия поставки, чтобы найти оптимальное решение для вашего бизнеса.</p>
-                        </div>
-                        <div class="pricing-col pricing-col-price">
-                            <div class="pricing-item-price">¥500 за одну категорию товара</div>
-                        </div>
-                    </div>
 
-                    <!-- Тариф 2 -->
-                    <div class="pricing-row">
-                        <div class="pricing-col pricing-col-title">
-                            <h3 class="pricing-item-title">Проверка товара</h3>
-                        </div>
-                        <div class="pricing-col pricing-col-description">
-                            <p class="pricing-item-description">Мы проводим тщательную проверку товаров различных категорий — от электроники и бытовой техники до продуктов питания и товаров для дома. Эксперты анализируют соответствие товара описанию и проверяют работу всех функций.</p>
-                        </div>
-                        <div class="pricing-col pricing-col-price">
-                            <div class="pricing-item-price">¥1500</div>
-                        </div>
-                    </div>
-
-                    <!-- Тариф 3 -->
-                    <div class="pricing-row">
-                        <div class="pricing-col pricing-col-title">
-                            <h3 class="pricing-item-title">Аудит производителя</h3>
-                        </div>
-                        <div class="pricing-col pricing-col-description">
-                            <p class="pricing-item-description">Аудит обеспечивает контроль качества продукции и услуг компании, проверку документов, лицензий и посещение фабрик для оценки соответствия установленным стандартам.</p>
-                        </div>
-                        <div class="pricing-col pricing-col-price">
-                            <div class="pricing-item-price">¥1500 + транспортные расходы</div>
-                        </div>
-                    </div>
-
-                    <!-- Тариф 4 -->
-                    <div class="pricing-row">
-                        <div class="pricing-col pricing-col-title">
-                            <h3 class="pricing-item-title">Выкуп тестовых образцов и проверка качества</h3>
-                        </div>
-                        <div class="pricing-col pricing-col-description">
-                            <p class="pricing-item-description">Для точной оценки качества товара до его поступления на рынок мы организуем выкуп тестовых образцов из разных регионов. После получения образцов наши специалисты проверяют документацию, соответствие спецификациям и проводят полное тестирование.</p>
-                        </div>
-                        <div class="pricing-col pricing-col-price">
-                            <div class="pricing-item-price">¥200</div>
-                        </div>
-                    </div>
-
-                    <!-- Тариф 5 -->
-                    <div class="pricing-row">
-                        <div class="pricing-col pricing-col-title">
-                            <h3 class="pricing-item-title">Проверка партии перед отгрузкой</h3>
-                        </div>
-                        <div class="pricing-col pricing-col-description">
-                            <p class="pricing-item-description">Проверяем 5–10% партии перед отправкой клиенту, включая внешний вид, размеры, вес, комплектность, маркировку и упаковку, чтобы гарантировать соответствие стандартам качества.</p>
-                        </div>
-                        <div class="pricing-col pricing-col-price">
-                            <div class="pricing-item-price">¥1500</div>
-                        </div>
-                    </div>
-
-                    <!-- Тариф 6 -->
-                    <div class="pricing-row">
-                        <div class="pricing-col pricing-col-title">
-                            <h3 class="pricing-item-title">Посещение выставок</h3>
-                        </div>
-                        <div class="pricing-col pricing-col-description">
-                            <p class="pricing-item-description">Если у вас нет возможности лично посетить важные выставки, наши специалисты представят вашу компанию на мероприятии, получат ценные знания и наладят контакты с производителями.</p>
-                        </div>
-                        <div class="pricing-col pricing-col-price">
-                            <div class="pricing-item-price">¥1500 + транспортные расходы</div>
-                        </div>
-                    </div>
-
-                    <!-- Тариф 7 -->
-                    <div class="pricing-row">
-                        <div class="pricing-col pricing-col-title">
-                            <h3 class="pricing-item-title">Сопровождение на выставках</h3>
-                        </div>
-                        <div class="pricing-col pricing-col-description">
-                            <p class="pricing-item-description">Полное сопровождение на выставках: подготовка стенда, транспортировка грузов и поддержка клиента на протяжении всего мероприятия, чтобы обеспечить успешное участие и эффективные переговоры.</p>
-                        </div>
-                        <div class="pricing-col pricing-col-price">
-                            <div class="pricing-item-price">¥2000 + транспортные расходы</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -491,7 +444,7 @@
 
         <!-- Секция "Заявка" -->
         <section id="request" class="request">
-            <div class="request-background" style="background-image: url('./pictures/requests.jpg');">
+            <div class="request-background" style="background-image: url('{% static 'pictures/requests.jpg' %}')">
                 <div class="container">
                     <div class="request-content">
                         <h2 class="request-title">Нет нужной услуги в списке?</h2>
@@ -563,117 +516,113 @@
         </section>
 
         <!-- Секция отзывов -->
-        <section class="testimonials" style="background-image: url('./pictures/reviews.jpg');">
+        <section class="testimonials" style="background-image: url('{% static 'pictures/reviews.jpg' %}')">
             <div class="container testimonials-container">
                 <div class="section-header">
                     <h2 class="section-title">Отзывы</h2>
                 </div>
-                
+
                 <div class="testimonial-slider">
                     <button class="testimonial-arrow testimonial-arrow-prev">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    
+
                     <div class="testimonial-items">
-                        <div class="testimonial-item active">
-                            <p class="testimonial-text">
-                                Хочу выразить благодарность команде за беспроблемный и оперативный процесс поставки. Мы заказывали оборудование для нашего производства в Подмосковье. От начала переговоров до получения груза на складе прошло меньше запланированного срока. Все документы были оформлены идеально, таможенное оформление прошло без задержек. Качество товара полностью соответствует образцам. Обязательно будем обращаться еще и порекомендуем вас партнерам!
-                            </p>
-                            <p class="testimonial-author">Николай</p>
+                        {% for r in reviews %}
+                        <div class="testimonial-item {% if forloop.first %}active{% endif %}">
+                            <p class="testimonial-text">{{ r.text }}</p>
+                            <p class="testimonial-author">{{ r.author }}</p>
                         </div>
-                        
-                        <div class="testimonial-item">
-                            <p class="testimonial-text">
-                                Как крупный оптовый поставщик товаров для дачи и отдыха, мы давно искали надежного партнера для импорта бескаркасных бассейнов. Работа с этой компанией оставила исключительно положительные впечатления.
-                            <p class="testimonial-author">Иван</p>
-                        </div>
-                        
-                        <div class="testimonial-item">
-                            <p class="testimonial-text">
-                                Обратились в компанию с сложной задачей — найти определенные промышленные мониторы и контроллеры, которые сложно найти в России. Специалисты быстро подобрали нужные модели, привезли полную партию без задержек. Качество оборудования отличное, вся документация была в порядке. Очень выручили!
-                            </p>
-                            <p class="testimonial-author">Михаил</p>
-                        </div>
+                        {% endfor %}
                     </div>
-                    
+
                     <button class="testimonial-arrow testimonial-arrow-next">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
-                
+
                 <div class="testimonial-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                    {% for r in reviews %}
+                    <span class="dot {% if forloop.first %}active{% endif %}"></span>
+                    {% endfor %}
                 </div>
             </div>
         </section>
 
         <!-- Секция контактов -->
         <section id="contacts" class="contacts">
-            <div id="map" class="map"></div>
-            <div class="contact-info">
-                <div class="contact-content">
-                    <h2 class="contact-title" style="font-size: 30px;">Свяжитесь с нами</h2>
-                    <div class="contact-details">
-                        <p>+86 158 6894 6832 Кирилл<br><br></p>
-                        <p>浙江省台州市台州湾新区三甲街道聚英路 2277-2 号三楼</p>
-                        <p>г. Тайчжоу, провинция Чжэцзян, Новый район Тайчжоу-Бэй, ул. Цзюйин, д. 2277-2, 3-й этаж.</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="mailto:" class="social-link" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://wa.me/79819338528" class="social-link" title="WhatsApp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://t.me/kirillzamkov" class="social-link" title="Telegram" target="_blank">
-                            <i class="fab fa-telegram"></i>
-                        </a>
+            <div class="contacts-container">
+                <div id="map" class="map"></div>
+                <div class="contact-info">
+                    <div class="contact-content">
+                        <h2 class="contact-title">Свяжитесь с нами</h2>
+                        <div class="contact-img-container">
+                            <div class="contact-img" style="background-image: url('{% static 'pictures/author.jpg' %}')"></div>
+                        </div>
+                        <div class="contact-details">
+                            <p class="contact-phone" style="font-size: 20px;"><strong>+86 158 6894 6832</strong> Кирилл</p>
+                            <p class="contact-address-chinese"><br>浙江省台州市台州湾新区三甲街道聚英路 2277-2 号三楼</p>
+                            <p class="contact-address-russian">г. Тайчжоу, провинция Чжэцзян, Новый район Тайчжоу-Бэй, ул. Цзюйин, д. 2277-2, 3-й этаж.</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:" class="social-link" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://wa.me/79819338528" class="social-link" title="WhatsApp" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://t.me/kirillzamkov" class="social-link" title="Telegram" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        </main>
 
         <!-- Подвал -->
         <footer>
-            <div class="footer-divider"></div>
-                
+            <div class="footer-divider"></div>    
             <p>© Yunco Import & Export Co. Ltd. <br>Тайчжоу, провинция Чжэцзян, Китай</p>
         </footer>
-
         <script>
-            
+            // Глобальные переменные
+            let yandexMap = null;
+            let isScrolling = false;
+            let scrollTimer = null;
+            let mapInitialized = false;
 
             // Изменение шапки при скролле
-            window.addEventListener('scroll', function() {
+            function handleHeaderScroll() {
+                if (isScrolling) return;
+                
+                isScrolling = true;
                 const header = document.getElementById('header');
                 if (window.scrollY > 50) {
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
-            });
+                
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    isScrolling = false;
+                }, 10);
+            }
 
-            // Слайдер для отзывов
-            const dots = document.querySelectorAll('.dot');
-            const testimonials = document.querySelectorAll('.testimonial-item');
-            
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', function() {
-                    dots.forEach(d => d.classList.remove('active'));
-                    testimonials.forEach(t => t.classList.remove('active'));
-                    
-                    dot.classList.add('active');
-                    testimonials[index].classList.add('active');
-                });
-            });
+            window.addEventListener('scroll', handleHeaderScroll, { passive: true });
 
-            // Плавный скролл для навигационных ссылок
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+            // Единый обработчик для плавного скролла
+            function initSmoothScroll() {
+                document.addEventListener('click', function(e) {
+                    const link = e.target.closest('a[href^="#"]');
+                    if (!link) return;
+
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
+                    const href = link.getAttribute('href');
+                    const target = document.querySelector(href);
+                    
                     if (target) {
                         const headerHeight = document.getElementById('header').offsetHeight;
                         const targetPosition = target.offsetTop - headerHeight;
@@ -683,73 +632,89 @@
                             behavior: 'smooth'
                         });
                         
-                        // Меняем URL без перезагрузки страницы
-                        history.pushState(null, null, this.getAttribute('href'));
+                        if (href.startsWith('#')) {
+                            history.pushState(null, null, href);
+                        }
                     }
                 });
-            });
+            }
 
             // Модальные окна
-            const modalBtns = document.querySelectorAll('.open-modal');
-            const modals = document.querySelectorAll('.modal');
-            const closeBtns = document.querySelectorAll('.close-btn');
+            function initModalWindows() {
+                const modalBtns = document.querySelectorAll('.open-modal');
+                const modals = document.querySelectorAll('.modal');
 
-            // Открытие модального окна
-            modalBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const modalId = this.getAttribute('data-modal');
-                    const modal = document.getElementById(modalId);
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden'; // Запрещаем скролл страницы
+                modalBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const modalId = this.getAttribute('data-modal');
+                        const modal = document.getElementById(modalId);
+                        if (modal) {
+                            modal.style.display = 'block';
+                            document.body.style.overflow = 'hidden';
+                        }
+                    });
                 });
-            });
 
-            // Закрытие модального окна
-            closeBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const modal = this.closest('.modal');
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Возвращаем скролл
-                });
-            });
-
-            // Закрытие модального окна при клике вне его
-            window.addEventListener('click', function(e) {
                 modals.forEach(modal => {
-                    if (e.target === modal) {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }
-                });
-            });
-
-            // Закрытие модального окна при нажатии Escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    modals.forEach(modal => {
-                        if (modal.style.display === 'block') {
-                            modal.style.display = 'none';
+                    modal.addEventListener('click', function(e) {
+                        if (e.target === this) {
+                            this.style.display = 'none';
                             document.body.style.overflow = 'auto';
                         }
                     });
-                }
-            });
+
+                    if (!modal.querySelector('.close-btn')) {
+                        const closeBtn = document.createElement('button');
+                        closeBtn.className = 'close-btn';
+                        closeBtn.innerHTML = '&times;';
+                        closeBtn.style.cssText = `
+                            position: absolute;
+                            top: 15px;
+                            right: 15px;
+                            background: none;
+                            border: none;
+                            color: #fff;
+                            font-size: 28px;
+                            cursor: pointer;
+                            z-index: 1001;
+                        `;
+                        closeBtn.addEventListener('click', function() {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        });
+                        modal.querySelector('.modal-content').style.position = 'relative';
+                        modal.querySelector('.modal-content').appendChild(closeBtn);
+                    }
+                });
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        modals.forEach(modal => {
+                            if (modal.style.display === 'block') {
+                                modal.style.display = 'none';
+                                document.body.style.overflow = 'auto';
+                            }
+                        });
+                    }
+                });
+            }
 
             // Карусель для отзывов
-            document.addEventListener('DOMContentLoaded', function() {
+            function initTestimonialSlider() {
                 const testimonialItems = document.querySelectorAll('.testimonial-item');
                 const dots = document.querySelectorAll('.dot');
                 const prevArrow = document.querySelector('.testimonial-arrow-prev');
                 const nextArrow = document.querySelector('.testimonial-arrow-next');
-                let currentIndex = 0;
+                
+                if (!testimonialItems.length) return;
 
-                // Функция для показа определенного слайда
+                let currentIndex = 0;
+                let slideInterval = null;
+
                 function showSlide(index) {
-                    // Скрываем все слайды
                     testimonialItems.forEach(item => item.classList.remove('active'));
                     dots.forEach(dot => dot.classList.remove('active'));
                     
-                    // Корректируем индекс, если он выходит за границы
                     if (index >= testimonialItems.length) {
                         currentIndex = 0;
                     } else if (index < 0) {
@@ -758,217 +723,425 @@
                         currentIndex = index;
                     }
                     
-                    // Показываем текущий слайд и активируем соответствующую точку
                     testimonialItems[currentIndex].classList.add('active');
-                    dots[currentIndex].classList.add('active');
+                    if (dots[currentIndex]) {
+                        dots[currentIndex].classList.add('active');
+                    }
                 }
 
-                // Обработчики для стрелок
-                prevArrow.addEventListener('click', function() {
-                    showSlide(currentIndex - 1);
-                });
 
-                nextArrow.addEventListener('click', function() {
-                    showSlide(currentIndex + 1);
-                });
+                function stopAutoSlide() {
+                    if (slideInterval) {
+                        clearInterval(slideInterval);
+                        slideInterval = null;
+                    }
+                }
 
-                // Обработчики для точек
+                if (prevArrow) {
+                    prevArrow.addEventListener('click', function() {
+                        showSlide(currentIndex - 1);
+                    });
+                }
+
+                if (nextArrow) {
+                    nextArrow.addEventListener('click', function() {
+                        showSlide(currentIndex + 1);
+                    });
+                }
+
                 dots.forEach((dot, index) => {
                     dot.addEventListener('click', function() {
                         showSlide(index);
                     });
                 });
 
-                // Автопереключение слайдов (опционально)
-                let slideInterval = setInterval(function() {
-                    showSlide(currentIndex + 1);
-                }, 5000); // Переключаем каждые 5 секунд
-
-                // Останавливаем автопереключение при наведении на слайдер
                 const slider = document.querySelector('.testimonial-slider');
-                slider.addEventListener('mouseenter', function() {
-                    clearInterval(slideInterval);
-                });
+                if (slider) {
+                    slider.addEventListener('mouseenter', stopAutoSlide);
+                }
 
-                slider.addEventListener('mouseleave', function() {
-                    slideInterval = setInterval(function() {
-                        showSlide(currentIndex + 1);
-                    }, 5000);
-                });
-            });
+                showSlide(0);
+            }
 
-
-
+            // Инициализация карты (исправленная версия)
             function initMap() {
+                // Если карта уже инициализирована, выходим
+                if (mapInitialized) {
+                    return;
+                }
+
+                const mapElement = document.getElementById('map');
+                if (!mapElement) {
+                    console.warn('Map element not found');
+                    return;
+                }
+
+                // Очищаем содержимое карты перед инициализацией
+                mapElement.innerHTML = '';
+
                 if (typeof ymaps !== 'undefined') {
                     ymaps.ready(function() {
+                        // Дополнительная проверка на случай асинхронности
+                        if (mapInitialized) {
+                            return;
+                        }
 
-                        var myMap = new ymaps.Map('map', {
-                            center: [28.691438, 121.131672], // Координаты центра карты
-                            zoom: 12 // Масштаб
-                        }, {
-                            searchControlProvider: 'yandex#search'
-                        });
+                        try {
+                            yandexMap = new ymaps.Map('map', {
+                                center: [28.57879, 121.54343],
+                                zoom: 12
+                            }, {
+                                searchControlProvider: 'yandex#search'
+                            });
 
+                            var myPlacemark = new ymaps.Placemark([28.57879, 121.54343], {
+                                hintContent: 'Наш офис'
+                            }, {
+                                preset: 'islands#redIcon', 
+                                iconColor: '#1f5bff',
+                            });
 
-                        var myPlacemark = new ymaps.Placemark([28.691438, 121.131672], {
-                            hintContent: 'Наш офис'
-                        }, {
-                            preset: 'islands#redIcon', 
-                            iconColor: '#1f5bff',
-                        });
+                            yandexMap.geoObjects.add(myPlacemark);
 
-                        myMap.geoObjects.add(myPlacemark);
+                            yandexMap.controls
+                                .remove('geolocationControl')
+                                .remove('searchControl')
+                                .remove('trafficControl')
+                                .remove('typeSelector')
+                                .remove('fullscreenControl')
+                                .remove('rulerControl');
 
-                        myMap.controls
-                            .remove('geolocationControl')
-                            .remove('searchControl')
-                            .remove('trafficControl')
-                            .remove('typeSelector')
-                            .remove('fullscreenControl')
-                            .remove('rulerControl');
+                            mapInitialized = true;
+                            console.log('Yandex Map initialized successfully');
+                        } catch (error) {
+                            console.error('Error initializing Yandex Map:', error);
+                            showMapError(mapElement);
+                        }
                     });
                 } else {
                     console.error('Yandex Maps API not loaded');
-                    document.getElementById('map').innerHTML = `
-                        <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#333; color:white;">
-                            <p>Карта временно недоступна</p>
-                        </div>
-                    `;
+                    showMapError(mapElement);
                 }
             }
 
-            document.addEventListener('DOMContentLoaded', function() {
-                initMap();
-            });
+            // Функция показа ошибки карты
+            function showMapError(mapElement) {
+                mapElement.innerHTML = `
+                    <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#333; color:white;">
+                        <p>Карта временно недоступна</p>
+                    </div>
+                `;
+            }
 
-            window.addEventListener('load', function() {
-                if (!document.querySelector('#map ymaps')) {
-                    initMap();
+            // Функция для уничтожения карты
+            function destroyMap() {
+                if (yandexMap) {
+                    try {
+                        yandexMap.destroy();
+                    } catch (error) {
+                        console.warn('Error destroying map:', error);
+                    }
+                    yandexMap = null;
                 }
-            });
+                mapInitialized = false;
+                
+                const mapElement = document.getElementById('map');
+                if (mapElement) {
+                    mapElement.innerHTML = '';
+                }
+            }
 
 
-
-
-            document.addEventListener('DOMContentLoaded', function() {
-                // Перехватываем клики по ссылкам
-                document.addEventListener('click', function(e) {
-                    if (e.target.matches('a[href]')) {
-                        const link = e.target.closest('a');
-                        const href = link.getAttribute('href');
-                        
-                        // Если это внешняя ссылка, якорь или специальные ссылки, пропускаем
-                        if (href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || 
-                            href.startsWith('tel:') || href.startsWith('javascript:')) {
+            // Мобильное меню
+            function initMobileMenu() {
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+                const mobileMenuLinks = document.querySelectorAll('.mobile-nav-menu a');
+                
+                if (!mobileMenuBtn || !mobileMenu) return;
+                
+                function toggleMobileMenu() {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    mobileMenuOverlay.classList.toggle('active');
+                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+                }
+                
+                function closeMobileMenu() {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+                
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+                mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+                
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        if (this.getAttribute('href').startsWith('http') || 
+                            this.getAttribute('href').startsWith('mailto:') || 
+                            this.getAttribute('href').startsWith('tel:')) {
                             return;
                         }
                         
-                        e.preventDefault();
-                        loadPage(href);
+                        if (this.getAttribute('href').startsWith('#')) {
+                            e.preventDefault();
+                            const target = document.querySelector(this.getAttribute('href'));
+                            if (target) {
+                                const headerHeight = document.getElementById('header').offsetHeight;
+                                const targetPosition = target.offsetTop - headerHeight;
+                                
+                                closeMobileMenu();
+                                
+                                setTimeout(() => {
+                                    window.scrollTo({
+                                        top: targetPosition,
+                                        behavior: 'smooth'
+                                    });
+                                }, 300);
+                            }
+                        } else {
+                            closeMobileMenu();
+                        }
+                    });
+                });
+                
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                        closeMobileMenu();
                     }
                 });
-
-                // Функция загрузки страницы
-                function loadPage(url) {
-                    // Показываем индикатор загрузки
-                    document.body.style.opacity = '0.7';
-                    
-                    fetch(url)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.text();
-                        })
-                        .then(html => {
-                            // Парсим HTML
-                            const parser = new DOMParser();
-                            const doc = parser.parseFromString(html, 'text/html');
-                            
-                            // Заменяем содержимое body
-                            document.body.innerHTML = doc.body.innerHTML;
-                            
-                            // Обновляем заголовок страницы
-                            document.title = doc.title;
-                            
-                            // Обновляем URL в браузере
-                            window.history.pushState({}, '', url);
-                            
-                            // Восстанавливаем opacity
-                            document.body.style.opacity = '1';
-                            
-                            // Перезапускаем скрипты
-                            initScripts();
-                        })
-                        .catch(error => {
-                            console.error('Error loading page:', error);
-                            document.body.style.opacity = '1';
-                            window.location.href = url; // Fallback на обычную загрузку
-                        });
-                }
-
-                // Функция инициализации скриптов после загрузки страницы
-                function initScripts() {
-                    // Инициализируем все необходимые скрипты заново
-                    initModalWindows();
-                    initTestimonialSlider();
-                    initMap();
-                    // Добавьте другие инициализации по необходимости
-                }
-
-                // Обработка кнопок браузера (вперед/назад)
-                window.addEventListener('popstate', function() {
-                    loadPage(window.location.pathname);
+                
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                        closeMobileMenu();
+                    }
                 });
+            }
 
-                // Инициализация модальных окон (пример)
-                function initModalWindows() {
-                    const modalBtns = document.querySelectorAll('.open-modal');
-                    const modals = document.querySelectorAll('.modal');
-                    const closeBtns = document.querySelectorAll('.close-btn');
+            // Основная инициализация
+            document.addEventListener('DOMContentLoaded', function() {
+                initSmoothScroll();
+                initModalWindows();
+                initTestimonialSlider();
+                initMobileMenu();
+                loadTariffs();
 
-                    modalBtns.forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            const modalId = this.getAttribute('data-modal');
-                            const modal = document.getElementById(modalId);
-                            if (modal) {
-                                modal.style.display = 'block';
-                                document.body.style.overflow = 'hidden';
-                            }
-                        });
-                    });
+                // Инициализируем карту с небольшой задержкой для стабильности
+                setTimeout(initMap, 100);
+            });
 
-                    closeBtns.forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            const modal = this.closest('.modal');
-                            if (modal) {
-                                modal.style.display = 'none';
-                                document.body.style.overflow = 'auto';
-                            }
-                        });
-                    });
-
-                    window.addEventListener('click', function(e) {
-                        modals.forEach(modal => {
-                            if (e.target === modal) {
-                                modal.style.display = 'none';
-                                document.body.style.overflow = 'auto';
-                            }
-                        });
-                    });
-                }
-
-                // Инициализация слайдера отзывов (пример)
-                function initTestimonialSlider() {
-                    // Ваш существующий код для слайдера
-                }
-
-                // Инициализация карты (пример)
-                function initMap() {
-                    // Ваш существующий код для карты
+            // Fallback инициализация карты при полной загрузке
+            window.addEventListener('load', function() {
+                if (!mapInitialized && document.getElementById('map')) {
+                    setTimeout(initMap, 500);
                 }
             });
+
+            // Упрощенная обработка истории браузера
+            window.addEventListener('popstate', function() {
+                const hash = window.location.hash;
+                if (hash) {
+                    const target = document.querySelector(hash);
+                    if (target) {
+                        const headerHeight = document.getElementById('header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+
+            /* --- Рендер тарифов (заменяет содержимое .container-prices) --- */
+            async function loadTariffs() {
+              const payload = await fetchJSON('/api/tariffs/');
+              if (!payload) return;
+              const tariffs = payload.results;
+              const container = document.querySelector('.container-prices');
+              if (!container) return;
+
+              container.innerHTML = ''; // очистим
+
+              payload.results.forEach(t => {
+                const row = document.createElement('div');
+                row.className = 'pricing-row';
+                row.innerHTML = `
+                  <div class="pricing-col pricing-col-title"><h3 class="pricing-item-title">${escapeHtml(t.title)}</h3></div>
+                  <div class="pricing-col pricing-col-description"><p class="pricing-item-description">${escapeHtml(t.description)}</p></div>
+                  <div class="pricing-col pricing-col-price"><div class="pricing-item-price">${escapeHtml(t.price)}</div></div>
+                `;
+                container.appendChild(row);
+              });
+            }
+
+
+            function initSPANavigation() {
+              document.addEventListener('click', async function (e) {
+                const link = e.target.closest('a[href]');
+                if (!link) return;
+
+                const href = link.getAttribute('href');
+
+                // Пропускаем внешние ссылки и якоря
+                if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+                if (href.startsWith('#')) return;
+
+                e.preventDefault();
+
+                destroyMap();
+
+                try {
+                  const response = await fetch(href);
+                  if (!response.ok) throw new Error('Failed to load ' + href);
+
+                  const html = await response.text();
+                  const parser = new DOMParser();
+                  const doc = parser.parseFromString(html, 'text/html');
+                  const newMain = doc.querySelector('main') || doc.querySelector('#main-content');
+
+                  if (!newMain) {
+                    console.warn('Не найден контейнер <main> в загруженной странице');
+                    return;
+                  }
+
+                  // Находим текущий <main> на странице
+                  const currentMain = document.querySelector('main') || document.querySelector('#main-content');
+                  if (currentMain) {
+                    currentMain.replaceWith(newMain);
+                  } else {
+                    document.body.appendChild(newMain);
+                  }
+
+                  // Обновляем URL без перезагрузки
+                  history.pushState(null, '', href);
+
+                  // Переинициализация логики
+                  reinitPageScripts();
+
+                } catch (err) {
+                  console.error('Ошибка загрузки страницы:', err);
+                }
+              });
+            }
+
+
+            /* простая функция экранирования */
+            function escapeHtml(str) {
+              if (!str) return '';
+              return String(str).replace(/[&<>"']/g, function(m) {
+                return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+              });
+            }
+
+            /* Запуск загрузки при готовности документа */
+            document.addEventListener('DOMContentLoaded', function() {
+              loadTariffs();
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                if (window.location.hash) {
+                    const target = document.querySelector(window.location.hash);
+
+                    if (target) {
+                        const headerHeight = document.getElementById('header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+
+                        setTimeout(() => {
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: "smooth"
+                            });
+                        }, 150); // важно дать время верстке отрисоваться
+                    }
+                }
+            });
+
+
+            // --- Управление и безопасная инициализация карты ---
+            let mapInitAttempts = 0;
+            const maxMapInitAttempts = 15; // больше попыток
+
+            function safeInitMap(force = false) {
+                const mapElement = document.getElementById('map');
+
+                // Если на странице нет карты — ничего не делаем
+                if (!mapElement) return;
+
+                // Если требуется принудительно перезапустить карту
+                if (force) {
+                    destroyMap();
+                    mapInitialized = false;
+                    mapInitAttempts = 0;
+                }
+
+                // Если карта уже инициализирована — не трогаем
+                if (mapInitialized) return;
+
+                if (mapInitAttempts >= maxMapInitAttempts) {
+                    console.warn('Достигнут лимит попыток инициализации карты');
+                    return;
+                }
+
+                mapInitAttempts++;
+
+                if (typeof ymaps !== 'undefined') {
+                    ymaps.ready(initMap);
+                } else {
+                    // Пробуем повторно загрузить API
+                    const script = document.createElement('script');
+                    script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+                    script.onload = () => ymaps.ready(initMap);
+                    document.head.appendChild(script);
+                }
+            }
+
+            // Периодическая проверка, нужна ли инициализация карты
+            setInterval(() => {
+                if (!mapInitialized && document.getElementById('map')) {
+                    safeInitMap();
+                }
+            }, 2000);
+
+
+            async function fetchJSON(url) {
+              try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('Fetch error ' + res.status);
+                return await res.json();
+              } catch (e) {
+                console.error(e);
+                return null;
+              }
+            }
+
+            document.addEventListener("readystatechange", () => {
+              if (document.readyState === "complete") {
+                reinitPageScripts();
+              }
+            });
+
+            function reinitPageScripts() {
+              initSmoothScroll();
+              initModalWindows();
+              initTestimonialSlider();
+              initMobileMenu();
+              loadTariffs();
+              safeInitMap();
+
+              setTimeout(() => {
+                const btn = document.querySelector('.mobile-menu-btn');
+                const menu = document.querySelector('.mobile-menu');
+                if (btn && menu && !btn.hasAttribute('data-rebound')) {
+                  btn.replaceWith(btn.cloneNode(true)); // очищаем старые слушатели
+                  initMobileMenu(); // заново навешиваем
+                  document.querySelector('.mobile-menu-btn').setAttribute('data-rebound', 'true');
+                }
+              }, 200);
+            }
         </script>
     </body>
 </html>

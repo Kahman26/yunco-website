@@ -1,45 +1,82 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наши проекты - Astra International Trading Co</title>
+    <title>Наши проекты - Yunco Import & Export</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/projects.css">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/projects.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'pictures/icon.png' %}">
 </head>
 <body>
-    <!-- Шапка -->
     <header id="header">
         <div class="container header-container">
-            <a href="index.html" class="logo">
+            <a href="{% url 'home' %}" class="logo">
                 <p>Yunco <br>Import & Export</p>
             </a>
             
-            <nav>
+            <nav class="nav">
                 <ul class="nav-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="index.html#about">О Нас</a></li>
-                    <li><a href="index.html#services">Услуги</a></li>
-                    <li><a href="index.html#price">Тарифы</a></li>
+                    <li><a href="{% url 'home' %}">Главная</a></li>
+                    <li><a href="{% url 'home' %}#about">О Нас</a></li>
+                    <li><a href="{% url 'home' %}#services">Услуги</a></li>
+                    <li><a href="{% url 'projects' %}">Наши проекты</a></li>
+                    <li><a href="{% url 'home' %}#price">Тарифы</a></li>
                 </ul>
             </nav>
             
             <div class="header-buttons">
-                <a href="index.html#contacts" class="btn btn-white">Контакты</a>
+                <a href="{% url 'home' %}#contacts" class="btn btn-white">Контакты</a>
+                <div class="header-social-links">
+                    <a href="https://wa.me/79819338528" class="btn btn-social whatsapp-btn" title="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://t.me/kirillzamkov" class="btn btn-social telegram-btn" title="Telegram" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
             </div>
             
             <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
+    <main id="main-content">
+    <!-- Мобильное меню -->
+    <div class="mobile-menu-overlay"></div>
+    <nav class="mobile-menu">
+        <div class="mobile-menu-container">
+            <ul class="mobile-nav-menu">
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'home' %}#about">О Нас</a></li>
+                <li><a href="{% url 'home' %}#services">Услуги</a></li>
+                <li><a href="{% url 'projects' %}">Наши проекты</a></li>
+                <li><a href="{% url 'home' %}#price">Тарифы</a></li>
+                <li><a href="{% url 'home' %}#contacts" class="mobile-menu-contact">Контакты</a></li>
+            </ul>
+            <div class="mobile-menu-footer">
+                <div class="mobile-social-links">
+                    <a href="mailto:" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/79819338528" class="social-link" title="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://t.me/kirillzamkov" class="social-link" title="Telegram" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+                <p class="mobile-copyright">© Yunco Import & Export</p>
+            </div>
+        </div>
+    </nav>
+
     <!-- Секция проектов -->
     <section class="projects-page">
-        <div class="projects-hero" style="background-image: url('./pictures/workers.jpg');">
+        <div class="projects-hero" style="background-image: url('{% static 'pictures/workers.jpg' %}')">
             <div class="container">
                 <h1 class="projects-hero-title">Наши проекты</h1>
                 <p class="projects-hero-subtitle">Реализованные решения и успешные кейсы сотрудничества</p>
@@ -48,285 +85,283 @@
 
         <div class="container">
             <div class="projects-grid">
-                <!-- Проект 1 -->
-                <div class="project-card" data-modal="project-modal-1">
-                    <div class="project-card-inner">
-                        <div class="project-card-image" style="background-image: url('./pictures/Projects/1-1.jpg');"></div>
-                        <div class="project-card-overlay"></div>
-                        <div class="project-card-content">
-                            <h3 class="project-card-title">Поставка промышленных мониторов и контроллеров</h3>
-                            <svg class="project-card-arrow" width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 0.994385L12 11.9944L1 22.9944" stroke="white" stroke-width="2"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Проект 2 -->
-                <div class="project-card" data-modal="project-modal-2">
-                    <div class="project-card-inner">
-                        <div class="project-card-image" style="background-image: url('./pictures/Projects/2-1.jpg');"></div>
-                        <div class="project-card-overlay"></div>
-                        <div class="project-card-content">
-                            <h3 class="project-card-title">Поставка инновационных бескаркасных бассейнов</h3>
-                            <svg class="project-card-arrow" width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 0.994385L12 11.9944L1 22.9944" stroke="white" stroke-width="2"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Проект 3 -->
-                <div class="project-card" data-modal="project-modal-3">
-                    <div class="project-card-inner">
-                        <div class="project-card-image" style="background-image: url('./pictures/Projects/3-1.jpg');"></div>
-                        <div class="project-card-overlay"></div>
-                        <div class="project-card-content">
-                            <h3 class="project-card-title">Комплектующие для спа-ванн и бассейнов</h3>
-                            <svg class="project-card-arrow" width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 0.994385L12 11.9944L1 22.9944" stroke="white" stroke-width="2"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
     </section>
-
-
-    <!-- Модальные окна для проектов -->
-    <!-- Проект 1 -->
-    <div id="project-modal-1" class="modal project-modal">
-        <div class="modal-content project-modal-content">
-            <div class="project-modal-body">
-                <div class="project-info">
-                    <div class="project-category">Проект 1</div>
-                    <div class="project-description">
-                        <ul class="project-features">
-                            <li><strong>Задача клиента:</strong><br> Обеспечить стабильное производство шкафов управления бесперебойными поставками качественных компонентов.</li>
-                            <li><strong>Наше решение:</strong><br> Организовали регулярные поставки промышленных мониторов и программируемых контроллеров напрямую от проверенных производителей. Полный пакет документов для таможенного оформления.</li>
-                            <li><strong>Результат:</strong><br> Производство клиента работает без простоев, себестоимость продукции снижена, выстроена надежная логистическая цепочка.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-gallery">
-                    <div class="gallery-container">
-                        <div class="gallery-slider">
-                            <div class="gallery-slides">
-                                <div class="gallery-slide active">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/1-1.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/1-2.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/1-3.jpg');"></div>
-                                </div>
-                            </div>
-                            <div class="gallery-control gallery-prev">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <div class="gallery-control gallery-next">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Проект 2 -->
-    <div id="project-modal-2" class="modal project-modal">
-        <div class="modal-content project-modal-content">
-            <div class="project-modal-body">
-                <div class="project-info">
-                    <div class="project-category">Проект 2</div>
-                    <div class="project-description">
-                        <ul class="project-features">
-                            <li><strong>Задача клиента:</strong><br> Частному магазину требовались современные бассейны с улучшенными характеристиками, которые могли бы заинтересовать покупателей.</li>
-                            <li><strong>Наше решение:</strong><br> Организовали поставки бассейнов, изготовленных по технологии производства сап-досок. Многослойная структура материала обеспечила повышенную прочность и долговечность продукции.</li>
-                            <li><strong>Результат:</strong><br> Магазин смог предложить покупателям качественно новые продукты с улучшенными характеристиками. Это позволило укрепить позиции на рынке и увеличить продажи за счет предложения современной и надежной продукции.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-gallery">
-                    <div class="gallery-container">
-                        <div class="gallery-slider">
-                            <div class="gallery-slides">
-                                <div class="gallery-slide active">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/2-1.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/2-2.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/2-3.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/2-4.jpg');"></div>
-                                </div>
-                            </div>
-                            <div class="gallery-control gallery-prev">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <div class="gallery-control gallery-next">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Проект 3 -->
-    <div id="project-modal-3" class="modal project-modal">
-        <div class="modal-content project-modal-content">
-            <div class="project-modal-body">
-                <div class="project-info">
-                    <div class="project-category">Проект 3</div>
-                    <div class="project-description">
-                        <ul class="project-features">
-                            <li><strong>Задача клиента:</strong><br> Комплексное обеспечение производства и сервиса спа-ванн и бассейнов надежными комплектующими.</li>
-                            <li><strong>Наше решение:</strong><br> Сформировали единый канал поставок широкой номенклатуры: контроллеры управления, насосы, фильтры и датчики.</li>
-                            <li><strong>Результат:</strong><br> Клиент сократил количество поставщиков, получил конкурентное преимущество за счет скорости ремонта и обслуживания.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-gallery">
-                    <div class="gallery-container">
-                        <div class="gallery-slider">
-                            <div class="gallery-slides">
-                                <div class="gallery-slide active">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/3-1.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/3-2.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/3-3.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/3-4.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/3-5.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/3-6.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/3-7.jpg');"></div>
-                                </div>
-                                <div class="gallery-slide">
-                                    <div class="gallery-image" style="background-image: url('./pictures/Projects/3-8.jpg');"></div>
-                                </div>
-                            </div>
-                            <div class="gallery-control gallery-prev">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <div class="gallery-control gallery-next">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </main>
 
     <script>
 
-        // Скрипт для SPA-навигации
-        document.addEventListener('DOMContentLoaded', function() {
-            // Перехватываем клики по ссылкам
-            document.addEventListener('click', function(e) {
-                if (e.target.matches('a[href]')) {
-                    const link = e.target;
-                    const href = link.getAttribute('href');
-                    
-                    // Если это внешняя ссылка или якорь, пропускаем
-                    if (href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
-                        return;
-                    }
-                    
-                    e.preventDefault();
-                    loadPage(href);
+        // Улучшенная функция для модальных окон проектов
+        function initProjectModals() {
+            const projectCards = document.querySelectorAll('.project-card');
+            const modals = document.querySelectorAll('.project-modal');
+
+            // Создаем кнопки закрытия для модальных окон
+            modals.forEach(modal => {
+                if (!modal.querySelector('.modal-close-btn')) {
+                    const closeBtn = document.createElement('button');
+                    closeBtn.className = 'modal-close-btn';
+                    closeBtn.innerHTML = '&times;';
+                    closeBtn.setAttribute('aria-label', 'Закрыть окно');
+                    closeBtn.addEventListener('click', function() {
+                        closeModal(modal);
+                    });
+                    modal.querySelector('.project-modal-content').appendChild(closeBtn);
                 }
             });
 
-            // Функция загрузки страницы
-            function loadPage(url) {
-                fetch(url)
-                    .then(response => response.text())
-                    .then(html => {
-                        // Парсим HTML
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html');
-                        
-                        // Заменяем содержимое body
-                        document.body.innerHTML = doc.body.innerHTML;
-                        
-                        // Обновляем заголовок страницы
-                        document.title = doc.title;
-                        
-                        // Обновляем URL в браузере
-                        window.history.pushState({}, '', url);
-                        
-                        // Перезапускаем скрипты
-                        initScripts();
-                    })
-                    .catch(error => {
-                        console.error('Error loading page:', error);
-                        window.location.href = url; // Fallback на обычную загрузку
-                    });
-            }
-
-            // Функция инициализации скриптов после загрузки страницы
-            function initScripts() {
-                // Повторно инициализируем скрипты, которые нужны на странице
-                window.addEventListener('scroll', function() {
-                    const header = document.getElementById('header');
-                    if (window.scrollY > 50) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
+            // Открытие модального окна при клике на карточку
+            projectCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const modalId = this.getAttribute('data-modal');
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        openModal(modal);
                     }
                 });
 
-                // Добавляем другие необходимые инициализации
-                console.log('Page loaded with SPA navigation');
+                // Добавляем поддержку клавиатуры для карточек
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const modalId = this.getAttribute('data-modal');
+                        const modal = document.getElementById(modalId);
+                        if (modal) {
+                            openModal(modal);
+                        }
+                    }
+                });
+            });
+
+            // Закрытие модального окна при клике на пустую область
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeModal(modal);
+                    }
+                });
+            });
+
+            // Закрытие модального окна при нажатии Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        if (modal.style.display === 'block') {
+                            closeModal(modal);
+                        }
+                    });
+                }
+            });
+
+            // Функция открытия модального окна
+            function openModal(modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                document.body.classList.add('modal-open');
+
+                // Инициализируем карусель для этого модального окна
+                initGallery(modal);
+
+                // Фокусируемся на кнопке закрытия для доступности
+                setTimeout(() => {
+                    const closeBtn = modal.querySelector('.modal-close-btn');
+                    if (closeBtn) closeBtn.focus();
+                }, 100);
             }
 
-            // Обработка кнопок браузера (вперед/назад)
-            window.addEventListener('popstate', function() {
-                loadPage(window.location.pathname);
+            // Функция закрытия модального окна
+            function closeModal(modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.body.classList.remove('modal-open');
+            }
+        }
+
+        // Улучшенная инициализация карусели для галереи
+        function initGallery(modal) {
+            const slider = modal.querySelector('.gallery-slider');
+            if (!slider) return;
+
+            const slides = slider.querySelectorAll('.gallery-slide');
+            const prevBtn = slider.querySelector('.gallery-prev');
+            const nextBtn = slider.querySelector('.gallery-next');
+
+            if (slides.length === 0) return;
+
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+
+                if (index >= slides.length) {
+                    currentIndex = 0;
+                } else if (index < 0) {
+                    currentIndex = slides.length - 1;
+                } else {
+                    currentIndex = index;
+                }
+
+                slides[currentIndex].classList.add('active');
+            }
+
+            // Обработчики для кнопок
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+            }
+
+            // Добавляем свайпы для мобильных устройств
+            let startX = 0;
+            let endX = 0;
+
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
             });
+
+            slider.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Свайп влево - следующий слайд
+                        showSlide(currentIndex + 1);
+                    } else {
+                        // Свайп вправо - предыдущий слайд
+                        showSlide(currentIndex - 1);
+                    }
+                }
+            }
+
+            // Инициализируем первый слайд
+            showSlide(0);
+        }
+
+        // Добавьте этот CSS для блокировки скролла тела при открытом модальном окне
+        const style = document.createElement('style');
+        style.textContent = `
+            body.modal-open {
+                overflow: hidden;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            initProjectModals();
         });
 
 
+
+        // Мобильное меню для страницы проектов
+        function initMobileMenu() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-nav-menu a');
+
+            if (!mobileMenuBtn || !mobileMenu) return;
+
+            // Открытие/закрытие меню
+            function toggleMobileMenu() {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+            }
+
+            // Закрытие меню
+            function closeMobileMenu() {
+                mobileMenuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            // Обработчики событий
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+            // Закрытие меню при клике на ссылку
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Для внешних ссылок не закрываем меню сразу
+                    if (this.getAttribute('href').startsWith('http') ||
+                        this.getAttribute('href').startsWith('mailto:') ||
+                        this.getAttribute('href').startsWith('tel:')) {
+                        return;
+                    }
+
+                    closeMobileMenu();
+                });
+            });
+
+            // Закрытие меню при изменении размера окна (на десктоп)
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Закрытие меню при нажатии Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+        }
 
         // Карусель для галереи проектов
         function initProjectModals() {
             const projectCards = document.querySelectorAll('.project-card');
             const modals = document.querySelectorAll('.project-modal');
-            const closeButtons = document.querySelectorAll('.modal-close-btn');
-            
+
+            // Создаем кнопки закрытия для модальных окон
+            modals.forEach(modal => {
+                if (!modal.querySelector('.modal-close-btn')) {
+                    const closeBtn = document.createElement('button');
+                    closeBtn.className = 'modal-close-btn';
+                    closeBtn.innerHTML = '&times;';
+                    closeBtn.style.cssText = `
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        background: rgba(0, 0, 0, 0.5);
+                        border: none;
+                        color: #fff;
+                        font-size: 28px;
+                        cursor: pointer;
+                        z-index: 1001;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: background 0.3s ease;
+                    `;
+                    closeBtn.addEventListener('click', function() {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    });
+                    modal.querySelector('.project-modal-content').style.position = 'relative';
+                    modal.querySelector('.project-modal-content').appendChild(closeBtn);
+                }
+            });
+
             // Открытие модального окна при клике на карточку
             projectCards.forEach(card => {
                 card.addEventListener('click', function() {
@@ -335,24 +370,13 @@
                     if (modal) {
                         modal.style.display = 'block';
                         document.body.style.overflow = 'hidden';
-                        
+
                         // Инициализируем карусель для этого модального окна
                         initGallery(modal);
                     }
                 });
             });
-            
-            // Закрытие модального окна при клике на кнопку закрытия
-            closeButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const modal = this.closest('.modal');
-                    if (modal) {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }
-                });
-            });
-            
+
             // Закрытие модального окна при клике на пустую область
             modals.forEach(modal => {
                 modal.addEventListener('click', function(e) {
@@ -362,7 +386,7 @@
                     }
                 });
             });
-            
+
             // Закрытие модального окна при нажатии Escape
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
@@ -380,20 +404,18 @@
         function initGallery(modal) {
             const slider = modal.querySelector('.gallery-slider');
             if (!slider) return;
-            
+
             const slides = slider.querySelectorAll('.gallery-slide');
             const prevBtn = slider.querySelector('.gallery-prev');
             const nextBtn = slider.querySelector('.gallery-next');
-            
+
             if (slides.length === 0) return;
-            
+
             let currentIndex = 0;
-            
+
             function showSlide(index) {
-                // Скрываем все слайды
                 slides.forEach(slide => slide.classList.remove('active'));
-                
-                // Корректируем индекс если выходит за границы
+
                 if (index >= slides.length) {
                     currentIndex = 0;
                 } else if (index < 0) {
@@ -401,28 +423,232 @@
                 } else {
                     currentIndex = index;
                 }
-                
-                // Показываем текущий слайд
+
                 slides[currentIndex].classList.add('active');
             }
-            
+
             // Обработчики для кнопок
             if (prevBtn) {
                 prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
             }
-            
+
             if (nextBtn) {
                 nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
             }
-            
+
             // Инициализируем первый слайд
             showSlide(0);
         }
 
-        // Инициализация при загрузке страницы
+        // Изменение шапки при скролле
+        function initHeaderScroll() {
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Основная инициализация
         document.addEventListener('DOMContentLoaded', function() {
+            initHeaderScroll();
+            initMobileMenu();
             initProjectModals();
         });
+
+        async function fetchJSON(url) {
+          const res = await fetch(url);
+          if (!res.ok) return null;
+          return await res.json();
+        }
+
+        function escapeHtml(str) {
+          if (!str) return '';
+          return String(str).replace(/[&<>"']/g, function(m) {
+            return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+          });
+        }
+
+        function createProjectCardElement(p) {
+          const card = document.createElement('div');
+          card.className = 'project-card';
+          card.setAttribute('data-modal', `project-modal-${p.id}`);
+
+          const bgStyle = p.images && p.images.length ? `background-image: url('${p.images[0]}');` : '';
+
+          card.innerHTML = `
+            <div class="project-card-inner">
+              <div class="project-card-image" style="${bgStyle}"></div>
+              <div class="project-card-overlay"></div>
+              <div class="project-card-content">
+                <h3 class="project-card-title">${escapeHtml(p.title)}</h3>
+              </div>
+            </div>
+          `;
+          return card;
+        }
+
+        function createProjectModalElement(p) {
+          // контейнер модалки (id = project-modal-<id>)
+          const modal = document.createElement('div');
+          modal.className = 'modal project-modal';
+          modal.id = `project-modal-${p.id}`;
+
+          // gallery slides
+          let slidesHtml = '';
+          if (p.images && p.images.length) {
+            p.images.forEach((imgUrl, idx) => {
+              slidesHtml += `
+                <div class="gallery-slide ${idx === 0 ? 'active' : ''}">
+                  <div class="gallery-image" style="background-image: url('${imgUrl}')" role="img" aria-label="${escapeHtml(p.title)} image ${idx+1}"></div>
+                </div>
+              `;
+            });
+          } else {
+            slidesHtml = `
+              <div class="gallery-slide active">
+                <div class="gallery-image" style="background-color: #eee; display:flex; align-items:center; justify-content:center;">No image</div>
+              </div>
+            `;
+          }
+
+          modal.innerHTML = `
+            <div class="modal-content project-modal-content">
+              <div class="project-modal-body">
+                <div class="project-info">
+                  <div class="project-description">
+                    <h2>${escapeHtml(p.title)}</h2>
+                    <div class="project-description-text">${p.description}</div>
+                  </div>
+                </div>
+                <div class="project-gallery">
+                  <div class="gallery-container">
+                    <div class="gallery-slider">
+                      <div class="gallery-slides">
+                        ${slidesHtml}
+                      </div>
+                      <div class="gallery-control gallery-prev" tabindex="0" role="button" aria-label="Previous image">
+                        <!-- svg -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                      <div class="gallery-control gallery-next" tabindex="0" role="button" aria-label="Next image">
+                        <!-- svg -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          return modal;
+        }
+
+        function initModalBehavior(modal) {
+          // close button
+          if (!modal.querySelector('.modal-close-btn')) {
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'modal-close-btn';
+            closeBtn.innerHTML = '&times;';
+            closeBtn.setAttribute('aria-label', 'Закрыть');
+            closeBtn.style.cssText = 'position:absolute;top:15px;right:15px;background:rgba(0,0,0,0.5);border:none;color:#fff;font-size:28px;cursor:pointer;width:40px;height:40px;border-radius:50%';
+            closeBtn.addEventListener('click', () => closeModal(modal));
+            modal.querySelector('.project-modal-content').style.position = 'relative';
+            modal.querySelector('.project-modal-content').appendChild(closeBtn);
+          }
+
+          // gallery init
+          initGallery(modal);
+
+          // close when clicking backdrop
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal(modal);
+          });
+        }
+
+        function openModal(modal) {
+          modal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+          modal.querySelector('.modal-close-btn')?.focus();
+          initGallery(modal);
+        }
+
+        function closeModal(modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+
+        function initGallery(modal) {
+          const slider = modal.querySelector('.gallery-slider');
+          if (!slider) return;
+          const slides = slider.querySelectorAll('.gallery-slide');
+          const prevBtn = slider.querySelector('.gallery-prev');
+          const nextBtn = slider.querySelector('.gallery-next');
+          if (!slides.length) return;
+
+          let currentIndex = 0;
+
+          function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            currentIndex = index;
+            slides[currentIndex].classList.add('active');
+          }
+
+          prevBtn.onclick = () => showSlide(currentIndex - 1);
+          nextBtn.onclick = () => showSlide(currentIndex + 1);
+
+          // touch
+          let startX = 0;
+          slider.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+          slider.addEventListener('touchend', e => {
+            const endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) showSlide(currentIndex + 1);
+            else if (endX - startX > 50) showSlide(currentIndex - 1);
+          });
+
+          showSlide(0);
+        }
+
+        window.loadProjects = async function() {
+          const payload = await fetchJSON('/api/projects/');
+          if (!payload) return;
+          const grid = document.querySelector('.projects-grid');
+          if (!grid) return;
+
+          grid.innerHTML = ''; // очистить
+
+          // удалим старые модалки, если были
+          document.querySelectorAll('.project-modal').forEach(n => n.remove());
+
+          payload.results.forEach(p => {
+            const card = createProjectCardElement(p);
+            grid.appendChild(card);
+
+            const modal = createProjectModalElement(p);
+            document.body.appendChild(modal);
+
+            // инициализация поведений
+            initModalBehavior(modal);
+
+            // клик карточки
+            card.addEventListener('click', () => openModal(modal));
+            card.addEventListener('keydown', (e) => { if (e.key==='Enter' || e.key===' ') openModal(modal); });
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          loadProjects();
+        });
     </script>
+
 </body>
 </html>
