@@ -18,6 +18,11 @@ a {
     color: inherit;
 }
 
+li {
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
@@ -348,25 +353,23 @@ a {
 
 .project-modal-body {
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
+    flex-direction: column; /* текст сверху, галерея снизу */
+    height: auto;           /* не ограничиваем высоту */
+    overflow: visible;      /* разрешаем растягиваться */
 }
 
 .project-info {
-    flex: 0 0 auto;
     padding: 20px;
-    overflow-y: auto;
-    background-color: #00060f;
-    max-height: 50vh;
+    max-height: none;       /* убираем ограничение */
+    overflow: visible;      /* текст может быть любой длины */
 }
 
 .project-gallery {
-    flex: 1;
-    background-color: #000;
-    position: relative;
-    min-height: 50vh;
+    flex: 0 0 auto;         /* галерея занимает "свой размер" после текста */
+    min-height: 50vh;       /* чтобы картинки были заметны */
+    margin-top: 20px;
 }
+
 
 .gallery-container {
     width: 100%;
@@ -375,6 +378,7 @@ a {
 }
 
 .gallery-slider {
+    background-color: #00060f;
     position: relative;
     width: 100%;
     height: 100%;
@@ -388,14 +392,18 @@ a {
 }
 
 .gallery-slide {
+    background-color: #00060f;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    width: 100%;               /* или любое удобное значение */
+    max-width: 600px;         /* по желанию, ограничение размера */
+    aspect-ratio: 1 / 1;      /* квадрат */
+    transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.5s ease;
 }
+
 
 .gallery-slide.active {
     opacity: 1;
@@ -403,11 +411,12 @@ a {
 
 .gallery-image {
     width: 100%;
-    height: 100%;
-    background-size: contain;
+    aspect-ratio: 1 / 1;       /* квадрат */
+    background-size: cover;     /* обрезка по центру */
     background-position: center;
     background-repeat: no-repeat;
     background-color: #000;
+    border-radius: 10px;
 }
 
 .gallery-control {
@@ -481,11 +490,9 @@ a {
     
     .project-modal-body {
         flex-direction: column;
-        height: 100vh;
     }
     
     .project-info {
-        max-height: 40vh;
         padding: 15px;
         overflow-y: auto;
     }
@@ -525,6 +532,15 @@ a {
         width: 20px;
         height: 20px;
     }
+
+    .gallery-image {
+        border-radius: 10px;
+    }
+
+    .gallery-slide {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     
     .modal-close-btn {
         top: 10px;
@@ -537,7 +553,6 @@ a {
 
 @media (max-width: 480px) {
     .project-info {
-        max-height: 45vh;
         padding: 12px;
     }
     
@@ -577,6 +592,10 @@ a {
     .gallery-next {
         right: 8px;
     }
+
+    .gallery-image {
+        border-radius: 10px;
+    }
     
     .modal-close-btn {
         top: 8px;
@@ -589,7 +608,6 @@ a {
 
 @media (max-width: 360px) {
     .project-info {
-        max-height: 50vh;
         padding: 10px;
     }
     
@@ -616,6 +634,10 @@ a {
         width: 16px;
         height: 16px;
     }
+
+    .gallery-image {
+        border-radius: 10px;
+    }
 }
 
 /* Горизонтальная ориентация на мобильных */
@@ -626,7 +648,6 @@ a {
     
     .project-info {
         flex: 1;
-        max-height: 100vh;
         padding: 15px;
     }
     
@@ -663,8 +684,8 @@ a {
     
     .project-info {
         flex: 1;
-        padding: 30px 40px;
-        max-height: none;
+        padding-left: 15px;
+        padding-right: 15px;
         overflow-y: auto;
     }
     
@@ -850,7 +871,7 @@ a {
 }
 
 /* Адаптивность для мобильного меню */
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     .nav, .header-buttons {
         display: none;
     }

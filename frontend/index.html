@@ -123,7 +123,7 @@
                             <p class="service-text">
                                 Мы находим для вас самые выгодные предложения на рынке Китая, подбирая товары, которые идеально соответствуют вашим требованиям. Наша команда проверяет производителей, контролирует качество продукции и обеспечивает надежность каждой сделки. С нами вы экономите время, избегаете рисков и получаете доступ к эксклюзивным предложениям, недоступным на открытом рынке.
                             </p>
-                                <button class="btn btn-blue open-modal" data-modal="modal1">Узнать больше</button>
+                                <button class="btn btn-blue open-modal center" data-modal="modal1">Узнать больше</button>
                         </div>
                     </div>
 
@@ -331,7 +331,7 @@
                                     <strong>Полный контроль качества прямо на месте производства.</strong>
                                 </li>
                                 <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
-                                    <strong>Русскоязычные специалисты</strong> обеспечивают точное соблюдение ваших требований.
+                                    <strong>Русскоязычные специалисты обеспечивают точное соблюдение ваших требований.</strong>
                                 </li>
                                 <li style="margin-bottom: 1rem; list-style-type: none; position: relative; padding-left: 1.5rem;">
                                     <strong>Снижение рисков получения некачественного товара.</strong>
@@ -712,9 +712,6 @@
                 let slideInterval = null;
 
                 function showSlide(index) {
-                    testimonialItems.forEach(item => item.classList.remove('active'));
-                    dots.forEach(dot => dot.classList.remove('active'));
-                    
                     if (index >= testimonialItems.length) {
                         currentIndex = 0;
                     } else if (index < 0) {
@@ -722,11 +719,12 @@
                     } else {
                         currentIndex = index;
                     }
-                    
+
+                    testimonialItems.forEach(item => item.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+
                     testimonialItems[currentIndex].classList.add('active');
-                    if (dots[currentIndex]) {
-                        dots[currentIndex].classList.add('active');
-                    }
+                    dots[currentIndex].classList.add('active');
                 }
 
 
@@ -761,6 +759,37 @@
                 }
 
                 showSlide(0);
+
+                // === Свайп для мобильных ===
+                let startX = 0;
+                let endX = 0;
+
+                if (slider) {
+                    slider.addEventListener('touchstart', (e) => {
+                        startX = e.touches[0].clientX;
+                    });
+
+                    slider.addEventListener('touchmove', (e) => {
+                        endX = e.touches[0].clientX;
+                    });
+
+                    slider.addEventListener('touchend', () => {
+                        const diff = startX - endX;
+
+                        // свайп влево → следующий отзыв
+                        if (diff > 50) {
+                            showSlide(currentIndex + 1);
+                        }
+
+                        // свайп вправо → предыдущий отзыв
+                        if (diff < -50) {
+                            showSlide(currentIndex - 1);
+                        }
+
+                        startX = 0;
+                        endX = 0;
+                    });
+                }
             }
 
             // Инициализация карты (исправленная версия)
