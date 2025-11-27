@@ -698,11 +698,13 @@
                     }
                 });
 
-                modal.addEventListener('touchmove', function(e) {
-                    if (!e.target.closest('.modal-content')) {
-                        e.preventDefault();
-                    }
-                }, { passive: false });
+                modals.forEach(modal => {
+                    modal.addEventListener('touchmove', function(e) {
+                        if (!e.target.closest('.modal-content')) {
+                            e.preventDefault();
+                        }
+                    }, { passive: false });
+                });
             }
 
             let scrollPosition = 0;
