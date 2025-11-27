@@ -690,7 +690,7 @@
                 document.addEventListener('keydown', function(e) {
                     if (e.key === 'Escape') {
                         modals.forEach(modal => {
-                            if (modal.style.display === 'block') {
+                            if (modal.classList.contains('active')) {
                                 modal.classList.remove('active');
                                 enableScroll();
                             }
@@ -698,22 +698,24 @@
                     }
                 });
 
-                modals.forEach(modal => {
-                    modal.addEventListener('touchmove', function(e) {
-                        e.stopPropagation();
-                    }, { passive: false });
-                });
+                modal.addEventListener('touchmove', function(e) {
+                    if (!e.target.closest('.modal-content')) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
             }
 
             let scrollPosition = 0;
 
             function disableScroll() {
                 scrollPosition = window.pageYOffset;
-                document.body.style.top = `-${scrollPosition}px`;
+                document.documentElement.classList.add('modal-open');
                 document.body.classList.add('modal-open');
+                document.body.style.top = `-${scrollPosition}px`;
             }
 
             function enableScroll() {
+                document.documentElement.classList.remove('modal-open');
                 document.body.classList.remove('modal-open');
                 document.body.style.top = '';
                 window.scrollTo(0, scrollPosition);
