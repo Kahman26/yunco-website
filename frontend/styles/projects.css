@@ -484,8 +484,7 @@ li {
 /* Адаптивность для модальных окон на мобильных устройствах */
 @media (max-width: 768px) {
     .project-modal-content {
-        height: 100vh;
-        max-height: 100vh;
+        padding-bottom: 80px !important;
     }
     
     .project-modal-body {
@@ -540,6 +539,15 @@ li {
     .gallery-slide {
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .gallery-slider {
+        margin-bottom: 40px;
+    }
+
+    .gallery-slide img {
+        max-height: calc(100vh - 120px) !important;
+        object-fit: contain;
     }
     
     .modal-close-btn {

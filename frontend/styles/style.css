@@ -889,6 +889,7 @@ body.no-scroll {
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 2000;
     overflow: auto;
+    overscroll-behavior: contain;
 }
 
 .modal-content {
@@ -1294,7 +1295,7 @@ body.no-scroll {
 
 .request-background {
     background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-    background-size: cover;
+    background-size: auto 100%;
     background-position: center;
     background-attachment: fixed;
     position: relative;
@@ -1972,7 +1973,7 @@ footer {
 .social-link:hover {
     background-color: var(--primary-color);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(31, 91, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 126, 35, 0.3);
 }
 
 /* Адаптивность для контактов */
@@ -2099,4 +2100,29 @@ footer {
         font-size: 22px;
     }
 }
+
+
+/* Блокировка скролла экрана при открытой модалке */
+body.modal-open {
+    overflow: hidden !important;
+    touch-action: none;
+}
+
+
+/* Модальное окно должно отлавливать overscroll */
+.modal {
+    overscroll-behavior: contain;
+}
+
+/* Внутренняя прокрутка модалки */
+.modal-content {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Активация модального окна */
+.modal.active {
+    display: flex !important; /* или block — если у тебя модалки так открываются */
+}
+
 
