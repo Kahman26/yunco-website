@@ -1174,6 +1174,8 @@ body.no-scroll {
     position: relative;
     padding: 160px 0;
     text-align: center;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .pricing-hero::before {
@@ -1301,6 +1303,8 @@ body.no-scroll {
     background-attachment: fixed;
     position: relative;
     padding: 100px 0;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .request-background::before {
