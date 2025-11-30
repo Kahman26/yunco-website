@@ -783,7 +783,7 @@ li {
     top: 0;
     right: -100%;
     width: 300px;
-    height: 100vh;
+    height: 100svh;
     background-color: #00060f;
     z-index: 1001;
     transition: right 0.3s ease;
