@@ -717,10 +717,16 @@
             }
 
             function enableScroll() {
+                const body = document.body;
                 document.documentElement.classList.remove('modal-open');
-                document.body.classList.remove('modal-open');
-                document.body.style.top = '';
-                window.scrollTo(0, scrollPosition);
+                body.classList.remove('modal-open');
+
+                const scrollY = -parseInt(body.style.top || '0', 10);
+                body.style.top = '';
+
+                requestAnimationFrame(() => {
+                    window.scrollTo({ top: scrollY, behavior: 'auto' });
+                });
             }
 
             // Карусель для отзывов
