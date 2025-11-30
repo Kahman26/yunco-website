@@ -423,7 +423,6 @@ body.no-scroll {
 /* Герой-секция */
 .hero {
     height: 80vh;
-    background-image: url('https://via.placeholder.com/1920x1080');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -1050,7 +1049,6 @@ body.no-scroll {
 /* Секция "Реализованные проекты" */
 .projects {
     padding: 100px 0;
-    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1168,24 +1166,29 @@ body.no-scroll {
 }
 
 .pricing-hero {
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
     position: relative;
     padding: 160px 0;
     text-align: center;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    overflow: hidden; /* важно */
 }
 
 .pricing-hero::before {
     content: '';
-    position: absolute;
+    position: fixed; /* фиксируем фон */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+
+    /* фоновая картинка, как было в HTML */
+    background-size: cover;
+    background-position: center;
+
+    /* затемнение — как у тебя в ::before */
     background-color: rgba(0, 6, 15, 0.7);
+    background-blend-mode: multiply;
+
+    z-index: -1; /* фон под всем */
 }
 
 .pricing-title {
@@ -1297,24 +1300,29 @@ body.no-scroll {
 }
 
 .request-background {
-    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
     position: relative;
     padding: 100px 0;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    overflow: hidden; /* чтобы фон не вылезал */
 }
 
+/* Исправлено: фиксированный псевдоэлемент вместо background-attachment */
 .request-background::before {
     content: '';
-    position: absolute;
+    position: fixed; /* фиксируем фон */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+
+    /* фоновая картинка как в твоём HTML */
+    background-size: cover;
+    background-position: center;
+
+    /* затемнение */
     background-color: rgba(0, 6, 15, 0.7);
+    background-blend-mode: multiply;
+
+    z-index: -1; /* фон за контентом */
 }
 
 .request-content {
@@ -1391,30 +1399,38 @@ body.no-scroll {
 
 
 /* Секция отзывов */
+/* Секция отзывов */
 .testimonials {
     padding: 100px 0;
-    background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
     position: relative;
+    overflow: hidden; /* важно чтобы фон не вылезал */
 }
 
+/* Фиксированный фон (решение проблемы iOS) */
 .testimonials::before {
     content: '';
-    position: absolute;
+    position: fixed; /* главный фикс */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1; /* фон за контентом */
+
+    /* тёмное затемнение как было в .testimonials::before */
     background-color: rgba(0, 6, 15, 0.85);
+    background-blend-mode: multiply;
 }
 
+/* Контейнер контента */
 .testimonials-container {
     position: relative;
     z-index: 1;
-    text-align: center;
 }
+
 
 .testimonial-slider {
     max-width: 800px;
