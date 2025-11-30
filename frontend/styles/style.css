@@ -1170,7 +1170,7 @@ body.no-scroll {
 .pricing-hero {
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     position: relative;
     padding: 160px 0;
     text-align: center;
@@ -1298,9 +1298,9 @@ body.no-scroll {
 
 .request-background {
     background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-    background-size: auto 100%;
+    background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     position: relative;
     padding: 100px 0;
     image-rendering: -webkit-optimize-contrast;
@@ -1396,7 +1396,7 @@ body.no-scroll {
     background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     position: relative;
 }
 
