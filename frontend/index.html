@@ -708,26 +708,34 @@
             }
 
             let scrollPosition = 0;
+            let isModalOpen = false;
 
             function disableScroll() {
+                if (isModalOpen) return; // если модалка уже открыта, не сохраняем скролл заново
                 scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
                 document.documentElement.classList.add('modal-open');
                 document.body.classList.add('modal-open');
                 document.body.style.top = `-${scrollPosition}px`;
+                isModalOpen = true;
             }
 
             function enableScroll() {
+                if (!isModalOpen) return; // если модалка уже закрыта, ничего не делаем
                 const body = document.body;
+
                 document.documentElement.classList.remove('modal-open');
                 body.classList.remove('modal-open');
 
                 const scrollY = -parseInt(body.style.top || '0', 10);
                 body.style.top = '';
 
-                setTimeout(() => {
+                // Используем requestAnimationFrame для гарантии, что fixed снят до скролла
+                requestAnimationFrame(() => {
                     window.scrollTo({ top: scrollY, behavior: 'auto' });
-                }, 0);
+                    isModalOpen = false; // флаг закрытия модалки
+                });
             }
+
 
             // Карусель для отзывов
             function initTestimonialSlider() {
