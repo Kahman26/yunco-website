@@ -710,7 +710,7 @@
             let scrollPosition = 0;
 
             function disableScroll() {
-                scrollPosition = window.pageYOffset;
+                scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
                 document.documentElement.classList.add('modal-open');
                 document.body.classList.add('modal-open');
                 document.body.style.top = `-${scrollPosition}px`;
@@ -724,9 +724,9 @@
                 const scrollY = -parseInt(body.style.top || '0', 10);
                 body.style.top = '';
 
-                requestAnimationFrame(() => {
+                setTimeout(() => {
                     window.scrollTo({ top: scrollY, behavior: 'auto' });
-                });
+                }, 0);
             }
 
             // Карусель для отзывов
